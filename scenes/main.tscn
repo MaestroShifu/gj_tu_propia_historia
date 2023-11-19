@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3uexgyxwp4ei"]
+
+[ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
+[ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
+
+[node name="Main" type="Node"]
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="InputManager" parent="Managers" instance=ExtResource("1_u7i8u")]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource("2_h57fj")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.868459, 0.495762, 0, -0.495762, 0.868459, 0, 2.72712, 4.24545)
