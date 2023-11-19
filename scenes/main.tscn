@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3uexgyxwp4ei"]
+[gd_scene load_steps=5 format=3 uid="uid://c3uexgyxwp4ei"]
 
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
+[ext_resource type="Environment" uid="uid://daxky6e86ynii" path="res://vfx/enviroment/materials/enviroment_settings_light.tres" id="3_csqm5"]
+[ext_resource type="PackedScene" uid="uid://cv5it0kpn6ita" path="res://scenes/only_scene_test/test_enviroment.tscn" id="3_g2dyi"]
 
 [node name="Main" type="Node"]
 
@@ -12,6 +14,13 @@
 [node name="World" type="Node3D" parent="."]
 
 [node name="Player" parent="World" instance=ExtResource("2_h57fj")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1.42702, 0)
+speed = 5
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.868459, 0.495762, 0, -0.495762, 0.868459, 0, 2.72712, 4.24545)
+[node name="Camera3D" type="Camera3D" parent="World/Player"]
+transform = Transform3D(2.27577, -0.978795, 1.42341, 0, 2.35425, 1.61888, -1.72747, -1.28947, 1.87521, 22.532, 29.2122, 29.9775)
+environment = ExtResource("3_csqm5")
+fov = 20.0
+size = 5.0
+
+[node name="test_enviroment" parent="." instance=ExtResource("3_g2dyi")]
