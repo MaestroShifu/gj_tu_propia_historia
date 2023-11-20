@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b630xabj008m5"
+path="res://.godot/imported/grapes_gj_tu_propia_historia.obj-a3ae8a999669913fd86ad6689e4f28bd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grapes_gj_tu_propia_historia.obj-a3ae8a999669913fd86ad6689e4f28bd.mesh"]
+
+source_file="res://assets/only_test_assets/meshes_test/grapes_gj_tu_propia_historia.obj"
+dest_files=["res://.godot/imported/grapes_gj_tu_propia_historia.obj-a3ae8a999669913fd86ad6689e4f28bd.mesh", "res://.godot/imported/grapes_gj_tu_propia_historia.obj-a3ae8a999669913fd86ad6689e4f28bd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
