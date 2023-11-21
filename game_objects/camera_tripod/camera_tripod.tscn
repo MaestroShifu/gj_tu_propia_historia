@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmqjfhwg11cwf"]
+
+[ext_resource type="Script" path="res://game_objects/camera_tripod/camera_tripod.gd" id="1_wy25g"]
+
+[node name="CameraTripod" type="Node3D"]
+script = ExtResource("1_wy25g")

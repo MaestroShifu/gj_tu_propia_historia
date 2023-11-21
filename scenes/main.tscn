@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3uexgyxwp4ei"]
+[gd_scene load_steps=6 format=3 uid="uid://c3uexgyxwp4ei"]
 
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
-[ext_resource type="Environment" uid="uid://daxky6e86ynii" path="res://vfx/enviroment/materials/enviroment_settings_light.tres" id="3_csqm5"]
 [ext_resource type="PackedScene" uid="uid://cv5it0kpn6ita" path="res://scenes/only_scene_test/test_enviroment.tscn" id="3_g2dyi"]
+[ext_resource type="PackedScene" uid="uid://bmqjfhwg11cwf" path="res://game_objects/camera_tripod/camera_tripod.tscn" id="3_lyv2k"]
+[ext_resource type="PackedScene" uid="uid://b7m2387lyb1bf" path="res://game_objects/camera/camera.tscn" id="4_k48vc"]
 
 [node name="Main" type="Node"]
 
@@ -13,14 +14,13 @@
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Player" parent="World" instance=ExtResource("2_h57fj")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1.42702, 0)
+[node name="Player" parent="World" groups=["Player"] instance=ExtResource("2_h57fj")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1.50589, 0)
 speed = 5
 
-[node name="Camera3D" type="Camera3D" parent="World/Player"]
-transform = Transform3D(2.27577, -0.978795, 1.42341, 0, 2.35425, 1.61888, -1.72747, -1.28947, 1.87521, 22.532, 29.2122, 29.9775)
-environment = ExtResource("3_csqm5")
-fov = 20.0
-size = 5.0
+[node name="CameraTripod" parent="World/Player" instance=ExtResource("3_lyv2k")]
+
+[node name="Camera" parent="World/Player/CameraTripod" instance=ExtResource("4_k48vc")]
+transform = Transform3D(2.85714, -4.27436e-07, 3.63321e-07, 0, 1.85043, 2.17697, -5.60983e-07, -2.17697, 1.85043, 1.66893e-06, 10, 8.50002)
 
 [node name="test_enviroment" parent="." instance=ExtResource("3_g2dyi")]

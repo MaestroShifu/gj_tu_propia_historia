@@ -1,20 +1,16 @@
 extends Node
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	move_player()
-	
-func move_player() -> void:
-	var direction = Vector3.ZERO
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_forward"):
-		direction.z -= 1
-	if Input.is_action_pressed("move_back"):
-		direction.z += 1
-	
-	if direction.length_squared() > 0:
-		direction.normalized()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_camera"):
+		GameEvents.emit_move_camera(-1)
+	if event.is_action_pressed("right_camera"):
+		GameEvents.emit_move_camera(1)
+		
+		# Input.get_axis("left_camera", "right_camera")
+
+func move_player() -> void:
+	var direction = Input.get_vector("move_left", "move_right", "move_back", "move_forward")
 	GameEvents.emit_move_player(direction)
