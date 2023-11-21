@@ -19,6 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35313, 0)
 speed = 4
 
 [node name="CameraTripod" parent="World/Player" instance=ExtResource("3_lyv2k")]
+speed_camera_movement = 90.0
 
 [node name="Camera" parent="World/Player/CameraTripod" instance=ExtResource("4_k48vc")]
 transform = Transform3D(1, 0, 0, 0, 0.624695, 0.780869, 0, -0.780869, 0.624695, 0, 5, 4)

@@ -2,7 +2,9 @@ extends Node3D
 
 class_name CamaraTripod
 
-@export var rotation_amount: float = 90
+
+var direction_tripod_camera: float = 0.0
+@export var speed_camera_movement: float = 4.0
 
 func _ready() -> void:
 	if not has_node("Camera"):
@@ -10,13 +12,10 @@ func _ready() -> void:
 		return
 	GameEvents.move_camera.connect(move_camera)
 
-func move_camera(value: int) -> void:
-	var rotation_y = rotation.y + (value * 90)
-	
-	if rotation_y >= 360:
-		rotation.y = 0
-	if rotation_y <= 0:
-		rotation.y = 360
+func move_camera(value: float) -> void:
+	direction_tripod_camera = value
 
-	rotation.y = rotation_y
-	print(rotation.y)
+func _process(delta: float) -> void:
+	var speed_camera: float = direction_tripod_camera * speed_camera_movement
+	var calculated_rotation = rotation_degrees.y + speed_camera * delta
+	rotation_degrees.y = calculated_rotation
