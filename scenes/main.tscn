@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhtcd8qtg5tql"]
+[gd_scene load_steps=5 format=3 uid="uid://dhtcd8qtg5tql"]
 
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
+[ext_resource type="PackedScene" uid="uid://bmqjfhwg11cwf" path="res://game_objects/camera_tripod/camera_tripod.tscn" id="3_lyv2k"]
+[ext_resource type="PackedScene" uid="uid://b7m2387lyb1bf" path="res://game_objects/camera/camera.tscn" id="4_k48vc"]
 
 [node name="Main" type="Node"]
 
@@ -11,4 +13,9 @@
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Player" parent="World" instance=ExtResource("2_h57fj")]
+[node name="Player" parent="World" groups=["Player"] instance=ExtResource("2_h57fj")]
+
+[node name="CameraTripod" parent="World/Player" instance=ExtResource("3_lyv2k")]
+
+[node name="Camera" parent="World/Player/CameraTripod" instance=ExtResource("4_k48vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 4)
