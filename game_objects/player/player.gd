@@ -3,7 +3,7 @@ extends CharacterBody3D
 class_name Player
 
 @export var speed = 14
-
+@export var gravity: float = -1.0
 var input_direction: Vector2 = Vector2.ZERO
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 
@@ -19,8 +19,7 @@ func _physics_process(_delta: float) -> void:
 
 	velocity = world_direction * speed
 	
-	# velocity.y += -1
-	print(velocity)
+	velocity.y += gravity
 
 	move_and_slide()
 

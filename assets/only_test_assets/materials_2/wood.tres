@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b156ttenvflan"]
+
+[ext_resource type="Material" uid="uid://c8eknywr12p7h" path="res://assets/only_test_assets/materials/outline_mat.tres" id="1_ad1sx"]
+
+[resource]
+resource_name = "wood"
+next_pass = ExtResource("1_ad1sx")
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.866667, 0.533333, 0.309804, 1)
