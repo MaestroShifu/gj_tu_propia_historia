@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c8eknywr12p7h"]
+
+[ext_resource type="Shader" path="res://assets/only_test_assets/materials/outline_2.gdshader" id="1_goqxn"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_goqxn")
+shader_parameter/thickness = 3.0
+shader_parameter/colorOutline = Color(0, 0, 0, 1)
+shader_parameter/zNear = 0.175
+shader_parameter/zFar = 24.79
