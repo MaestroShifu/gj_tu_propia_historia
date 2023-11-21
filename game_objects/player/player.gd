@@ -11,10 +11,10 @@ func _ready() -> void:
 	GameEvents.move_player.connect(move_player)
 
 func _physics_process(_delta: float) -> void:
-	var world_direction = Vector3.ZERO
+	var world_direction := Vector3.ZERO
 	
 	world_direction += camera.global_transform.basis.x * input_direction.x
-	var character_fordward = Vector3.UP.cross(camera.global_transform.basis.x)
+	var character_fordward := Vector3.UP.cross(camera.global_transform.basis.x)
 	world_direction += character_fordward * input_direction.y
 
 	velocity = world_direction * speed

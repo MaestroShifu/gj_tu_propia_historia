@@ -12,10 +12,10 @@ func _ready() -> void:
 		return
 	GameEvents.move_camera.connect(move_camera)
 
-func move_camera(value: float) -> void:
-	direction_tripod_camera = value
-
 func _process(delta: float) -> void:
 	var speed_camera: float = direction_tripod_camera * speed_camera_movement
 	var calculated_rotation = rotation_degrees.y + speed_camera * delta
 	rotation_degrees.y = calculated_rotation
+
+func move_camera(value: float) -> void:
+	direction_tripod_camera = value

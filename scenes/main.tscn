@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
 [ext_resource type="PackedScene" uid="uid://bmqjfhwg11cwf" path="res://game_objects/camera_tripod/camera_tripod.tscn" id="3_lyv2k"]
 [ext_resource type="PackedScene" uid="uid://b7m2387lyb1bf" path="res://game_objects/camera/camera.tscn" id="4_k48vc"]
-[ext_resource type="PackedScene" uid="uid://deqphenf3v0a5" path="res://scenes/only_scene_test/test_enviroment_2.tscn" id="6_gwpi3"]
+[ext_resource type="PackedScene" path="res://scenes/only_scene_test/test_enviroment_2.tscn" id="6_gwpi3"]
 
 [node name="Main" type="Node"]
 
@@ -15,7 +15,7 @@
 [node name="World" type="Node3D" parent="."]
 
 [node name="Player" parent="World" groups=["Player"] instance=ExtResource("2_h57fj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35313, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55553, 0)
 speed = 4
 
 [node name="CameraTripod" parent="World/Player" instance=ExtResource("3_lyv2k")]
