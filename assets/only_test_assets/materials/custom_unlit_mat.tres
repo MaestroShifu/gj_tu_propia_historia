@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ns4dw7wgeo6t"]
+
+[ext_resource type="Material" uid="uid://c8eknywr12p7h" path="res://assets/only_test_assets/materials/outline_mat.tres" id="1_nfvc1"]
+[ext_resource type="Shader" uid="uid://dto31oty6iwy3" path="res://assets/only_test_assets/materials/custom_unlit.tres" id="2_ryros"]
+[ext_resource type="Texture2D" uid="uid://ddibjedn1rxar" path="res://assets/only_test_assets/materials/Bioma_01_Atlas_16x16 px.png" id="3_0hpiq"]
+
+[resource]
+render_priority = 0
+next_pass = ExtResource("1_nfvc1")
+shader = ExtResource("2_ryros")
+shader_parameter/vector_control_grayscale = Vector3(0.33, 0.33, 0.33)
+shader_parameter/slider_color = 1.0
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/specular = null
+shader_parameter/main_tex = ExtResource("3_0hpiq")

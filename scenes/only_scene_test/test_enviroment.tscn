@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cv5it0kpn6ita"]
+[gd_scene load_steps=20 format=3 uid="uid://cv5it0kpn6ita"]
 
 [ext_resource type="MeshLibrary" uid="uid://ddhcmwea5pgrs" path="res://assets/only_test_assets/library_meshes.tres" id="1_fi77q"]
 [ext_resource type="PackedScene" uid="uid://bei7ii176wg5f" path="res://assets/only_test_assets/meshes_test/flowers.glb" id="2_qy07g"]
@@ -18,6 +18,11 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr0ya"]
 size = Vector3(21.7662, 1.57736, 14.8285)
+[ext_resource type="ArrayMesh" uid="uid://k0uai745jyvk" path="res://assets/only_test_assets/meshes_test/arrow.obj" id="15_ed53h"]
+[ext_resource type="Material" uid="uid://cdjn1v32ey2jo" path="res://assets/only_test_assets/materials/woodDark.tres" id="16_jleej"]
+[ext_resource type="Material" uid="uid://cp21qh4mwmv4s" path="res://assets/only_test_assets/materials/wood.tres" id="17_g08v0"]
+[ext_resource type="ArrayMesh" uid="uid://b630xabj008m5" path="res://assets/only_test_assets/meshes_test/grapes_gj_tu_propia_historia.obj" id="18_4wogb"]
+[ext_resource type="Material" uid="uid://ns4dw7wgeo6t" path="res://assets/only_test_assets/materials/custom_unlit_mat.tres" id="19_ahrxa"]
 
 [node name="test_enviroment" type="Node3D"]
 
@@ -232,3 +237,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31819, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131014, -1.60733, 2.38784)
 shape = SubResource("BoxShape3D_hr0ya")
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 2)
+mesh = ExtResource("15_ed53h")
+surface_material_override/0 = ExtResource("17_g08v0")
+surface_material_override/1 = ExtResource("16_jleej")
+
+[node name="Arrow2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 2)
+mesh = ExtResource("18_4wogb")
+surface_material_override/0 = ExtResource("19_ahrxa")
