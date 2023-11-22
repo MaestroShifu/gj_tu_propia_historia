@@ -30,3 +30,5 @@ func move_player(in_input_direction: Vector2) -> void:
 
 func on_action_bark():
 	print("is barking")
+	
+# https://alessandrofama.com/tutorials/fmod/godot/getting-started
