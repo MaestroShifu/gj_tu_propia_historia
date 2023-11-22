@@ -25,3 +25,5 @@ func _physics_process(_delta: float) -> void:
 
 func move_player(in_input_direction: Vector2) -> void:
 	input_direction = in_input_direction
+
+# https://alessandrofama.com/tutorials/fmod/godot/getting-started
