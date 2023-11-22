@@ -1,14 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://daam66frohisy"]
+[gd_scene load_steps=11 format=3 uid="uid://daam66frohisy"]
 
 [ext_resource type="Texture2D" uid="uid://dsb5ythj4octt" path="res://assets/prototype_assets/Green/texture_08.png" id="1_cyist"]
 [ext_resource type="Texture2D" uid="uid://mnna7km60cge" path="res://assets/prototype_assets/Orange/texture_09.png" id="2_u7jnd"]
 [ext_resource type="Texture2D" uid="uid://doqcwmogmtqg1" path="res://assets/prototype_assets/Purple/texture_10.png" id="3_huahs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2aqx"]
-albedo_texture = ExtResource("1_cyist")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5xsf"]
 albedo_texture = ExtResource("2_u7jnd")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_q6410"]
+vertices = PackedVector3Array(-1.74627, 1.94011, -0.503556, -2.99627, 1.94011, -0.503556, -2.99627, 1.94011, 0.246444, -1.74627, 1.94011, 0.246444, -1.74627, 1.94011, 0.246444, -1.74627, 1.44011, 0.746444, 4.75373, 1.44011, 4.74644, -4.74627, 1.44011, -4.75356, -3.49627, 1.44011, -0.753556, -1.74627, 1.44011, -1.00356, 4.75373, 1.44011, -4.75356, -3.49627, 1.44011, -0.753556, -4.74627, 1.44011, -4.75356, -4.74627, 1.44011, 4.74644, -3.24627, 1.44011, 0.746444, 4.75373, 1.44011, -4.75356, -1.74627, 1.94011, -0.503556, -1.74627, 1.94011, 0.246444, 4.75373, 1.44011, 4.74644, 0.98377, 1.44011, 1.00441, -1.74627, 1.44011, 0.746444, -3.24627, 1.44011, 0.746444, -4.74627, 1.44011, 4.74644, 4.75373, 1.44011, 4.74644, 4.75373, 1.44011, -4.75356, -1.74627, 1.44011, -1.00356, -1.74627, 1.94011, -0.503556)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(11, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(17, 19, 18), PackedInt32Array(18, 19, 15), PackedInt32Array(15, 19, 16), PackedInt32Array(16, 19, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(26, 25, 24)]
+agent_height = 1.0
+agent_radius = 0.1
+agent_max_slope = 20.96
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2aqx"]
+albedo_texture = ExtResource("1_cyist")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7qb2"]
 albedo_texture = ExtResource("3_huahs")
@@ -20,6 +27,10 @@ albedo_texture = ExtResource("3_huahs")
 material = SubResource("StandardMaterial3D_7h7q2")
 left_to_right = 0.0
 size = Vector3(1, 0.5, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qbnor"]
+size = Vector2(10, 10)
+center_offset = Vector3(0, 0.44, 0)
 
 [node name="Level" type="Node3D"]
 
@@ -35,30 +46,43 @@ directional_shadow_split_3 = 0.634
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 46.1
 
-[node name="Floor" type="CSGCombiner3D" parent="."]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25722, 0)
-size = Vector3(10, 0.5, 10)
-material = SubResource("StandardMaterial3D_l2aqx")
-
 [node name="Wall" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86809, 0)
 use_collision = true
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Wall"]
+radius = 0.52
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Wall"]
 size = Vector3(0.2, 0.5, 1)
 material = SubResource("StandardMaterial3D_k5xsf")
 
-[node name="Ramp" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.599, 0.2, 0)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(0.999927, -0.00968982, 0.00719842, 0.00973274, 0.999935, -0.00595079, -0.00714028, 0.00602042, 0.999956, -0.968528, 1.53704, 0.0195488)
+navigation_mesh = SubResource("NavigationMesh_q6410")
+
+[node name="Floor" type="CSGCombiner3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, -3.3142e-09, -1.39698e-09, 4.58385e-10, 1, -4.65661e-10, 4.65661e-10, -1.86265e-09, 1, 0.00373679, 0.697332, -0.0022849)
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Ramp"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25722, 0)
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_l2aqx")
+
+[node name="Ramp" type="CSGCombiner3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, -1.44792e-09, -9.31323e-10, 1.39698e-09, 1, -4.65661e-10, 0, -9.31323e-10, 1, -2.58849, 1.27981, -0.00642614)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Ramp"]
 size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_e7qb2")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Ramp"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="NavigationRegion3D/Ramp"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991514, 0, 0)
 mesh = SubResource("PrismMesh_ht4kf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, -1.44792e-09, -9.31323e-10, 1.39698e-09, 1, -4.65661e-10, 0, -9.31323e-10, 1, 0.00581259, 0.59718, -0.00355393)
+visible = false
+mesh = SubResource("PlaneMesh_qbnor")
