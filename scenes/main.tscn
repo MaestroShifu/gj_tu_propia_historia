@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhtcd8qtg5tql"]
+[gd_scene load_steps=8 format=3 uid="uid://dhtcd8qtg5tql"]
 
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
+[ext_resource type="Script" path="res://game_objects/world.gd" id="2_cu15j"]
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
 [ext_resource type="PackedScene" uid="uid://bmqjfhwg11cwf" path="res://game_objects/camera_tripod/camera_tripod.tscn" id="3_lyv2k"]
 [ext_resource type="PackedScene" uid="uid://b7m2387lyb1bf" path="res://game_objects/camera/camera.tscn" id="4_k48vc"]
@@ -15,6 +16,7 @@
 
 [node name="World" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00949311, 0.0151386, -0.0112553)
+script = ExtResource("2_cu15j")
 
 [node name="Player" parent="World" groups=["Player"] instance=ExtResource("2_h57fj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55881, 2.53851, 0)
