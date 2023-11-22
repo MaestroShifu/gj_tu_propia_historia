@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://daam66frohisy"]
+
+[ext_resource type="Texture2D" uid="uid://dsb5ythj4octt" path="res://assets/prototype_assets/Green/texture_08.png" id="1_cyist"]
+[ext_resource type="Texture2D" uid="uid://mnna7km60cge" path="res://assets/prototype_assets/Orange/texture_09.png" id="2_u7jnd"]
+[ext_resource type="Texture2D" uid="uid://doqcwmogmtqg1" path="res://assets/prototype_assets/Purple/texture_10.png" id="3_huahs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2aqx"]
+albedo_texture = ExtResource("1_cyist")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5xsf"]
+albedo_texture = ExtResource("2_u7jnd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7qb2"]
+albedo_texture = ExtResource("3_huahs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7h7q2"]
+albedo_texture = ExtResource("3_huahs")
+
+[sub_resource type="PrismMesh" id="PrismMesh_ht4kf"]
+material = SubResource("StandardMaterial3D_7h7q2")
+left_to_right = 0.0
+size = Vector3(1, 0.5, 1)
+
+[node name="Level" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.612481, -0.705688, 0.356191, -0.0266021, 0.431942, 0.901509, -0.790038, -0.561632, 0.245783, 0, 0, 0)
+light_color = Color(1, 0.984314, 0.505882, 1)
+light_energy = 1.15
+shadow_enabled = true
+shadow_blur = 0.2
+directional_shadow_split_1 = 0.111
+directional_shadow_split_2 = 0.34
+directional_shadow_split_3 = 0.634
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 46.1
+
+[node name="Floor" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25722, 0)
+size = Vector3(10, 0.5, 10)
+material = SubResource("StandardMaterial3D_l2aqx")
+
+[node name="Wall" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Wall"]
+size = Vector3(0.2, 0.5, 1)
+material = SubResource("StandardMaterial3D_k5xsf")
+
+[node name="Ramp" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.599, 0.2, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ramp"]
+size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_e7qb2")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Ramp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991514, 0, 0)
+mesh = SubResource("PrismMesh_ht4kf")
