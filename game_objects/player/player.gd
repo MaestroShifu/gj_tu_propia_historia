@@ -9,6 +9,7 @@ var input_direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	GameEvents.move_player.connect(move_player)
+	GameEvents.action_bark.connect(on_action_bark)
 
 func _physics_process(_delta: float) -> void:
 	var world_direction := Vector3.ZERO
@@ -26,4 +27,8 @@ func _physics_process(_delta: float) -> void:
 func move_player(in_input_direction: Vector2) -> void:
 	input_direction = in_input_direction
 
+
+func on_action_bark():
+	print("is barking")
+	
 # https://alessandrofama.com/tutorials/fmod/godot/getting-started
