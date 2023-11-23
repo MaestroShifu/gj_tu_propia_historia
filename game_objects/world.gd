@@ -5,4 +5,5 @@ extends Node3D
 
 
 func _process(delta: float) -> void:
-	child.update_agent(player.global_position)
+	child.update_agent(player.position)
+

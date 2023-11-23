@@ -17,5 +17,6 @@ func _process(delta: float) -> void:
 	var calculated_rotation = rotation_degrees.y + speed_camera * delta
 	rotation_degrees.y = calculated_rotation
 
+
 func move_camera(value: float) -> void:
 	direction_tripod_camera = value
