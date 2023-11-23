@@ -8,8 +8,8 @@
 albedo_texture = ExtResource("2_u7jnd")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_q6410"]
-vertices = PackedVector3Array(-1.74626, 1.94011, -0.503554, -2.99626, 1.94011, -0.503554, -2.99626, 1.94011, 0.246446, -1.74626, 1.94011, 0.246446, -1.74626, 1.94011, 0.246446, -1.74626, 1.44011, 0.746446, 4.75374, 1.44011, 4.74645, -4.74626, 1.44011, -4.75355, -3.49626, 1.44011, -0.753554, -1.74626, 1.44011, -1.00355, 4.75374, 1.44011, -4.75355, -3.49626, 1.44011, -0.753554, -4.74626, 1.44011, -4.75355, -4.74626, 1.44011, 4.74645, -3.24626, 1.44011, 0.746446, 4.75374, 1.44011, -4.75355, -1.74626, 1.94011, -0.503554, -1.74626, 1.94011, 0.246446, 4.75374, 1.44011, 4.74645, 0.983772, 1.44011, 1.00441, -1.74626, 1.44011, 0.746446, -3.24626, 1.44011, 0.746446, -4.74626, 1.44011, 4.74645, 4.75374, 1.44011, 4.74645, 4.75374, 1.44011, -4.75355, -1.74626, 1.44011, -1.00355, -1.74626, 1.94011, -0.503554)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(11, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(17, 19, 18), PackedInt32Array(18, 19, 15), PackedInt32Array(15, 19, 16), PackedInt32Array(16, 19, 17), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(26, 25, 24)]
+vertices = PackedVector3Array(-4.74626, 1.44011, -4.75355, -4.74626, 1.44011, 4.74645, 4.75374, 1.44011, 4.74645, 4.75374, 1.44011, -4.75355)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_height = 1.0
 agent_radius = 0.1
 agent_max_slope = 20.96
@@ -47,7 +47,7 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 46.1
 
 [node name="Wall" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86809, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73024, 0)
 use_collision = true
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Wall"]
@@ -71,7 +71,7 @@ size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_l2aqx")
 
 [node name="Ramp" type="CSGCombiner3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, -1.44792e-09, -9.31323e-10, 1.39698e-09, 1, -4.65661e-10, 0, -9.31323e-10, 1, -2.58849, 1.27981, -0.00642614)
+transform = Transform3D(1, -4.23825e-09, -9.31323e-10, 1.43336e-09, 1, -4.65661e-10, 0, -1.86265e-09, 1, -2.58849, 1.18305, -0.00642615)
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Ramp"]

@@ -31,4 +31,4 @@ transform = Transform3D(0.997785, -0.0617668, 0.024691, 0, 0.371187, 0.928558, -
 [node name="Level" parent="World" instance=ExtResource("5_v64hg")]
 
 [node name="Child" parent="World" instance=ExtResource("6_ubjuo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, 2.50752, 3.55255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, 2.42703, 3.55255)
