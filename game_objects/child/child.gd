@@ -1,7 +1,8 @@
 extends CharacterBody3D
 class_name GJChild
 
-@export var speed = 2
+@export var speed : float = 2
+@export var random_pos_radius : float = 15
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -23,4 +24,13 @@ func _physics_process(_delta: float) -> void:
 
 func update_target_position(target_location : Vector3):
 	navigation_agent_3d.set_target_position(target_location)
+
+
+func update_random_target_pos():
+	var random_position := self.position
+	random_position.x = random_position.x + randf_range(-random_pos_radius, random_pos_radius)
+	random_position.z = random_position.z + randf_range(-random_pos_radius, random_pos_radius)
+
+	navigation_agent_3d.set_target_position(random_position)
+
 

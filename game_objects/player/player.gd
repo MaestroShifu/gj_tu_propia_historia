@@ -39,7 +39,7 @@ func on_action_bark():
 	var delta_pos := child_pos - self.position
 	var delta_distance := delta_pos.length()
 	if delta_distance > bark_radius:
-		return
-
-	%Child.update_target_position(self.position)
+		%Child.update_random_target_pos()
+	else:
+		%Child.update_target_position(self.position)
 
