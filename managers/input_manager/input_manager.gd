@@ -1,6 +1,6 @@
 extends Node
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	move_player()
 	move_camera()
 	action_bark()
