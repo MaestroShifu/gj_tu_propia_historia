@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://daam66frohisy"]
 
 [ext_resource type="Texture2D" uid="uid://dsb5ythj4octt" path="res://assets/prototype_assets/Green/texture_08.png" id="1_cyist"]
+[ext_resource type="PackedScene" uid="uid://ctmemck5o0kci" path="res://game_objects/item/item.tscn" id="1_h4uqx"]
 [ext_resource type="Texture2D" uid="uid://mnna7km60cge" path="res://assets/prototype_assets/Orange/texture_09.png" id="2_u7jnd"]
 [ext_resource type="Texture2D" uid="uid://doqcwmogmtqg1" path="res://assets/prototype_assets/Purple/texture_10.png" id="3_huahs"]
 
@@ -27,10 +28,6 @@ albedo_texture = ExtResource("3_huahs")
 material = SubResource("StandardMaterial3D_7h7q2")
 left_to_right = 0.0
 size = Vector3(1, 0.5, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_qbnor"]
-size = Vector2(10, 10)
-center_offset = Vector3(0, 0.44, 0)
 
 [node name="Level" type="Node3D"]
 
@@ -82,7 +79,19 @@ material = SubResource("StandardMaterial3D_e7qb2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991514, 0, 0)
 mesh = SubResource("PrismMesh_ht4kf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, -1.44792e-09, -9.31323e-10, 1.39698e-09, 1, -4.65661e-10, 0, -9.31323e-10, 1, 0.00581259, 0.59718, -0.00355393)
-visible = false
-mesh = SubResource("PlaneMesh_qbnor")
+[node name="ItemList" type="Node3D" parent="."]
+
+[node name="Item" parent="ItemList" instance=ExtResource("1_h4uqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27088, 2.56714, 4.34961)
+
+[node name="Item2" parent="ItemList" instance=ExtResource("1_h4uqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62837, 2.48414, 4.34961)
+
+[node name="Item3" parent="ItemList" instance=ExtResource("1_h4uqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58623, 2.48414, -2.13733)
+
+[node name="Item4" parent="ItemList" instance=ExtResource("1_h4uqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6359, 2.48414, -0.726745)
+
+[node name="Item5" parent="ItemList" instance=ExtResource("1_h4uqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44167, 2.48414, -2.78742)

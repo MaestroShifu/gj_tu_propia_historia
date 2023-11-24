@@ -2,24 +2,55 @@ extends CharacterBody3D
 class_name GJChild
 
 @export var speed : float = 2
+@export var listening_range: float = 8
 @export var random_pos_radius : float = 15
+
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
+var dog_bark: bool = false
+var is_listening: bool = false
+var is_lost: bool = false
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+func _ready() -> void:
+	GameEvents.action_bark.connect(on_action_dog_bark)
+
+
+func _process(_delta: float) -> void:
+	validate_listening_range()
 
 
 func _physics_process(_delta: float) -> void:
 	if navigation_agent_3d.is_navigation_finished():
+		is_lost = false
 		return
 
-	var current_pos := global_position
 	var next_pos := navigation_agent_3d.get_next_path_position()
-	var direction := (next_pos - current_pos).normalized()
-	var new_velocity : Vector3 = direction * speed
-	new_velocity.y -= gravity
+	var direction := (next_pos - global_position).normalized()
+	velocity = direction * speed
+	velocity.y -= gravity
 
-	set_velocity(new_velocity)
 	move_and_slide()
+
+
+func validate_listening_range() -> void:
+	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
+	is_listening = global_position.distance_to(dog.global_position) <= listening_range
+
+	print("Range: ", global_position.distance_to(dog.global_position))
+	
+	if dog_bark && is_listening:
+		update_target_position(dog.global_position)
+		dog_bark = false
+		is_lost = false
+	
+	if is_lost:
+		return
+	
+	if not is_listening && not is_lost && not dog_bark:
+		update_random_target_pos()
+		is_lost = true
 
 
 func update_target_position(target_location : Vector3):
@@ -27,6 +58,7 @@ func update_target_position(target_location : Vector3):
 
 
 func update_random_target_pos():
+	print("Chnage position")
 	var random_position := self.position
 	random_position.x = random_position.x + randf_range(-random_pos_radius, random_pos_radius)
 	random_position.z = random_position.z + randf_range(-random_pos_radius, random_pos_radius)
@@ -34,3 +66,5 @@ func update_random_target_pos():
 	navigation_agent_3d.set_target_position(random_position)
 
 
+func on_action_dog_bark() -> void:
+	dog_bark = true
