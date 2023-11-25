@@ -8,7 +8,6 @@ class_name GJChild
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
 var dog_bark: bool = false
-var is_listening: bool = false
 var is_lost: bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,9 +35,9 @@ func _physics_process(_delta: float) -> void:
 
 func validate_listening_range() -> void:
 	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
-	is_listening = global_position.distance_to(dog.global_position) <= listening_range
+	var is_listening := valid_is_listening()
 
-	print("Range: ", global_position.distance_to(dog.global_position))
+	# print("Range: ", global_position.distance_to(dog.global_position))
 	
 	if dog_bark && is_listening:
 		update_target_position(dog.global_position)
@@ -67,4 +66,14 @@ func update_random_target_pos():
 
 
 func on_action_dog_bark() -> void:
-	dog_bark = true
+	if valid_is_listening():
+		dog_bark = true
+
+
+func valid_is_listening() -> bool:
+	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
+	return global_position.distance_to(dog.global_position) <= listening_range
+
+
+func take_object_is_valid() -> bool:
+	return valid_is_listening() && not is_lost
