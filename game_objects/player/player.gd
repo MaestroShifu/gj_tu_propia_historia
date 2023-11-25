@@ -72,13 +72,13 @@ func calculate_percentage(distance: float) -> float:
 
 
 func flicker_percentage(percentage: float) -> void:
-	if percentage >= 90:
+	if percentage >= 80:
 		animation_player.play("Flicker_90")
 		return
-	if percentage >= 75:
+	if percentage >= 40:
 		animation_player.play("Flicker_75")
 		return
-	if percentage >= 50:
+	if percentage >= 20:
 		animation_player.play("Flicker_50")
 		return
 	
