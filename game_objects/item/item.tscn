@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctmemck5o0kci"]
+[gd_scene load_steps=5 format=3 uid="uid://ctmemck5o0kci"]
 
 [ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_lssng"]
 [ext_resource type="Texture2D" uid="uid://ba5ak0mk5ag3d" path="res://assets/prototype_assets/Red/texture_10.png" id="2_efqtw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8hub"]
 albedo_texture = ExtResource("2_efqtw")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcsg7"]
+radius = 1.5
 
 [node name="Item" type="Node3D" groups=["Item"]]
 script = ExtResource("1_lssng")
@@ -13,5 +16,11 @@ script = ExtResource("1_lssng")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 material = SubResource("StandardMaterial3D_j8hub")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_hcsg7")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

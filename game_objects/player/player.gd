@@ -6,6 +6,7 @@ class_name Player
 
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var input_direction: Vector2 = Vector2.ZERO
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -57,6 +58,31 @@ func calculate_distance_to_item() -> void:
 				min_item_distance = distance
 			if distance < min_item_distance:
 				min_item_distance = distance
+	
+	var percentage := calculate_percentage(min_item_distance)
+	flicker_percentage(percentage)
+
+
+func calculate_percentage(distance: float) -> float:
+	if distance == 0:
+		return 0
+	var diff := range_of_search - distance
+	var percentage := (diff * 100) / range_of_search
+	return percentage
+
+
+func flicker_percentage(percentage: float) -> void:
+	if percentage >= 80:
+		animation_player.play("Flicker_90")
+		return
+	if percentage >= 40:
+		animation_player.play("Flicker_75")
+		return
+	if percentage >= 20:
+		animation_player.play("Flicker_50")
+		return
+	
+	animation_player.play("RESET")
 
 
 func on_action_bark():

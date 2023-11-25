@@ -8,7 +8,6 @@ class_name GJChild
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
 var dog_bark: bool = false
-var is_listening: bool = false
 var is_lost: bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -36,18 +35,19 @@ func _physics_process(_delta: float) -> void:
 
 func validate_listening_range() -> void:
 	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
-	is_listening = global_position.distance_to(dog.global_position) <= listening_range
+	var is_listening := valid_is_listening()
 
-	print("Range: ", global_position.distance_to(dog.global_position))
+	# print("Range: ", global_position.distance_to(dog.global_position))
 	
 	if dog_bark && is_listening:
 		update_target_position(dog.global_position)
 		dog_bark = false
 		is_lost = false
-	
+
 	if is_lost:
+		dog_bark = false
 		return
-	
+
 	if not is_listening && not is_lost && not dog_bark:
 		update_random_target_pos()
 		is_lost = true
@@ -58,13 +58,35 @@ func update_target_position(target_location : Vector3):
 
 
 func update_random_target_pos():
-	print("Chnage position")
-	var random_position := self.position
-	random_position.x = random_position.x + randf_range(-random_pos_radius, random_pos_radius)
-	random_position.z = random_position.z + randf_range(-random_pos_radius, random_pos_radius)
+	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
+	var nav_region : NavigationRegion3D = $"../Level/NavigationRegion3D" as NavigationRegion3D
+	var nav_region_map : RID = NavigationServer3D.region_get_map(nav_region.get_region_rid())
+	var random_position : Vector3 = Vector3.ZERO
+	while true:
+		random_position = self.position
+		random_position.x = random_position.x + randf_range(-random_pos_radius, random_pos_radius)
+		random_position.z = random_position.z + randf_range(-random_pos_radius, random_pos_radius)
+
+		var closest_point := NavigationServer3D.map_get_closest_point(nav_region_map, random_position)
+		var delta := closest_point - random_position
+		var delta_distance := delta.length()
+		if delta_distance >= 0 and delta_distance <= 0.6:
+			var delta_dog := dog.position - random_position
+			if delta_dog.length() > listening_range:
+				break
 
 	navigation_agent_3d.set_target_position(random_position)
 
 
 func on_action_dog_bark() -> void:
-	dog_bark = true
+	if valid_is_listening():
+		dog_bark = true
+
+
+func valid_is_listening() -> bool:
+	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
+	return global_position.distance_to(dog.global_position) <= listening_range
+
+
+func take_object_is_valid() -> bool:
+	return valid_is_listening() && not is_lost
