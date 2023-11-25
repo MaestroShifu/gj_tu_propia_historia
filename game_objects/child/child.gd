@@ -59,10 +59,10 @@ func update_target_position(target_location : Vector3):
 
 func update_random_target_pos():
 	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
-	var nav_region : NavigationRegion3D = $"../Level/NavigationRegion3D" as NavigationRegion3D
+	var nav_region : NavigationRegion3D = $"../Level/NavigationRegion3D2" as NavigationRegion3D
 	var nav_region_map : RID = NavigationServer3D.region_get_map(nav_region.get_region_rid())
 	var random_position : Vector3 = Vector3.ZERO
-	while true:
+	while false:
 		random_position = self.position
 		random_position.x = random_position.x + randf_range(-random_pos_radius, random_pos_radius)
 		random_position.z = random_position.z + randf_range(-random_pos_radius, random_pos_radius)

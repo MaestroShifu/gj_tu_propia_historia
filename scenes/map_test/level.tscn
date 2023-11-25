@@ -104,7 +104,6 @@ mesh = ExtResource("17_cd4lh")
 transform = Transform3D(0.995265, 0, -0.0972008, 0, 1, 0, 0.0972008, 0, 0.995265, 8.01168, 0, -6.69141)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enviro/Trees/Tree_14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("4_j410g")
 mesh = ExtResource("17_cd4lh")
 

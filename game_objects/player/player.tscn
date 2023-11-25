@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmjdq2gu0n3il"]
+[gd_scene load_steps=12 format=3 uid="uid://dmjdq2gu0n3il"]
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_aylh3"]
 [ext_resource type="AudioStream" uid="uid://cv54t5hpgrjkf" path="res://audios/SFX/sfx_dog_bark.wav" id="2_c33jh"]
