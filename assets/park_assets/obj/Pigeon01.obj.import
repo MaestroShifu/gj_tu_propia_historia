@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpo65555iuc5r"
+path="res://.godot/imported/Pigeon01.obj-d94128e2908e2817a66c7b58e6c7777b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pigeon01.obj-d94128e2908e2817a66c7b58e6c7777b.mesh"]
+
+source_file="res://assets/park_assets/obj/Pigeon01.obj"
+dest_files=["res://.godot/imported/Pigeon01.obj-d94128e2908e2817a66c7b58e6c7777b.mesh", "res://.godot/imported/Pigeon01.obj-d94128e2908e2817a66c7b58e6c7777b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

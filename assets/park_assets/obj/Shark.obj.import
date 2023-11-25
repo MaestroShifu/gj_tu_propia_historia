@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ftks2usvtqq2"
+path="res://.godot/imported/Shark.obj-32fe65681ae3b2bc714a8263e7a0a29d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Shark.obj-32fe65681ae3b2bc714a8263e7a0a29d.mesh"]
+
+source_file="res://assets/park_assets/obj/Shark.obj"
+dest_files=["res://.godot/imported/Shark.obj-32fe65681ae3b2bc714a8263e7a0a29d.mesh", "res://.godot/imported/Shark.obj-32fe65681ae3b2bc714a8263e7a0a29d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

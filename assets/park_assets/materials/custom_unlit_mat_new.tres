@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b3b7vw2pejlmn"]
+
+[ext_resource type="Shader" uid="uid://dto31oty6iwy3" path="res://assets/park_assets/materials/custom_unlit.tres" id="2_hvuy1"]
+[ext_resource type="Texture2D" uid="uid://bpmty4ij1ug2h" path="res://assets/park_assets/materials/texture_atlas_color.png" id="3_n51nc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("2_hvuy1")
+shader_parameter/Vector3Parameter = null
+shader_parameter/FloatParameter2 = null
+shader_parameter/vector_control_grayscale = Vector3(0.33, 0.33, 0.33)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.4
+shader_parameter/specular = 0.0
+shader_parameter/main_tex = ExtResource("3_n51nc")

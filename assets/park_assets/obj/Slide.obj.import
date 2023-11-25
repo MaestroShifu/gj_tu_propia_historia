@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://df43j7b87xlfo"
+path="res://.godot/imported/Slide.obj-16eb5dcfba18bd055f792f76a32ace36.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Slide.obj-16eb5dcfba18bd055f792f76a32ace36.mesh"]
+
+source_file="res://assets/park_assets/obj/Slide.obj"
+dest_files=["res://.godot/imported/Slide.obj-16eb5dcfba18bd055f792f76a32ace36.mesh", "res://.godot/imported/Slide.obj-16eb5dcfba18bd055f792f76a32ace36.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

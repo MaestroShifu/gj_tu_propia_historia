@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpbylr2yp4rm5"
+path="res://.godot/imported/Walrus.obj-d43caffbb908d2ab722a15a3395fbbed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Walrus.obj-d43caffbb908d2ab722a15a3395fbbed.mesh"]
+
+source_file="res://assets/park_assets/obj/Walrus.obj"
+dest_files=["res://.godot/imported/Walrus.obj-d43caffbb908d2ab722a15a3395fbbed.mesh", "res://.godot/imported/Walrus.obj-d43caffbb908d2ab722a15a3395fbbed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2k1q1tmunscf"
+path="res://.godot/imported/Wall.obj-7f1edfc8a3167bec14c8022df20138ff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Wall.obj-7f1edfc8a3167bec14c8022df20138ff.mesh"]
+
+source_file="res://assets/park_assets/obj/Wall.obj"
+dest_files=["res://.godot/imported/Wall.obj-7f1edfc8a3167bec14c8022df20138ff.mesh", "res://.godot/imported/Wall.obj-7f1edfc8a3167bec14c8022df20138ff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

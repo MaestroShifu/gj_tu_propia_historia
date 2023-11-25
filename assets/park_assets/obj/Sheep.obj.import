@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://j0chqc0c1hvo"
+path="res://.godot/imported/Sheep.obj-c8044c5c56e56aff6b018f1df92b3c4b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Sheep.obj-c8044c5c56e56aff6b018f1df92b3c4b.mesh"]
+
+source_file="res://assets/park_assets/obj/Sheep.obj"
+dest_files=["res://.godot/imported/Sheep.obj-c8044c5c56e56aff6b018f1df92b3c4b.mesh", "res://.godot/imported/Sheep.obj-c8044c5c56e56aff6b018f1df92b3c4b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

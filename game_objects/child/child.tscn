@@ -3,18 +3,22 @@
 [ext_resource type="Script" path="res://game_objects/child/child.gd" id="1_yvmkd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6iras"]
+radius = 0.35
+height = 0.7
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7iuj"]
+radius = 0.35
+height = 0.7
 
 [node name="Child" type="CharacterBody3D" groups=["Child"]]
 script = ExtResource("1_yvmkd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("CapsuleShape3D_6iras")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 mesh = SubResource("CapsuleMesh_x7iuj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
