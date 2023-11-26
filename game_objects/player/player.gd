@@ -67,27 +67,32 @@ func calculate_distance_to_item() -> void:
 
 
 func calculate_percentage(distance: float) -> float:
-	if distance == 0:
-		return 0
+
 	var diff := range_of_search - distance
 	var percentage := (diff * 100) / range_of_search
 	return percentage
 
 
 func flicker_percentage(percentage: float) -> void:
+	var particle: GPUParticles3D = particle_signal.get_child(0) as GPUParticles3D
+	print(percentage)
 	if percentage >= 80:
+		particle.emitting = true
 #		for idx in particle_signal.get_child_count():
-#			var particle: GPUParticles3D = particle_signal.get_child(idx) as GPUParticles3D
+##			var particle: GPUParticles3D = particle_signal.get_child(idx) as GPUParticles3D
 #			particle.set_emitting(true)
 		animation_player.play("Flicker_90")
 		return
 	if percentage >= 40:
+		particle.emitting = true
 		animation_player.play("Flicker_75")
 		return
 	if percentage >= 20:
-		animation_player.play("Flicker_50")
+		
+		
+		animation_player.play("Flwicker_50")
 		return
-
+	particle.emitting = false
 	animation_player.play("RESET")
 
 

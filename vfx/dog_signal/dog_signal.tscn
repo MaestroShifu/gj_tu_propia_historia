@@ -87,20 +87,16 @@ color_ramp = SubResource("GradientTexture1D_p150l")
 
 [node name="Exclamation_mesh" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_k71ky")
-emitting = false
 amount = 1
 lifetime = 2.5
-one_shot = true
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_yidom")
 draw_pass_1 = ExtResource("3_v8yhx")
 
 [node name="Flare" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_po4kq")
-emitting = false
 amount = 25
 lifetime = 3.5
-one_shot = true
 explosiveness = 1.0
 local_coords = true
 transform_align = 1
