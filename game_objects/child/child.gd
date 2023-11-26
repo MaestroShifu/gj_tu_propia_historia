@@ -37,7 +37,7 @@ func validate_listening_range() -> void:
 	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
 	var is_listening := valid_is_listening()
 
-w	# print("Range: ", global_position.distance_to(dog.global_position))
+	# print("Range: ", global_position.distance_to(dog.global_position))
 
 	if dog_bark && is_listening:
 		update_target_position(dog.global_position)
