@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtapvtt63nsv2"]
 
 [ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_kcvfq"]
-[ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_yqy4s"]
+[ext_resource type="Script" path="res://game_objects/item/items_main/item_manta.gd" id="1_t5512"]
 [ext_resource type="ArrayMesh" uid="uid://cxmobnlkqb3xs" path="res://assets/park_assets/obj/Manta.obj" id="2_6pwuc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ii0p2"]
@@ -10,8 +10,8 @@ points = PackedVector3Array(0.146034, 0.181912, 0.306579, -0.0267611, 0.209038, 
 [sub_resource type="SphereShape3D" id="SphereShape3D_82ufc"]
 radius = 0.6
 
-[node name="ToyManta" type="Node3D"]
-script = ExtResource("1_yqy4s")
+[node name="ToyManta" type="Node3D" groups=["Item"]]
+script = ExtResource("1_t5512")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_kcvfq")

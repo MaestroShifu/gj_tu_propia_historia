@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctmemck5o0kci"]
-
-[ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_lssng"]
-
-[node name="Item" type="Node3D" groups=["Item"]]
-script = ExtResource("1_lssng")
