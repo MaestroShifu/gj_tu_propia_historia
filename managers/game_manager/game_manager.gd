@@ -5,6 +5,7 @@ extends Node
 
 var total_items: int = 0
 var total_take_items: int = 0
+var percentage_color: float = 0
 
 var is_win: bool = false
 
@@ -14,10 +15,14 @@ func _ready() -> void:
 	GameEvents.take_item.connect(take_item)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if total_items == total_take_items:
 		is_win = true
-
+	
+	var percentage_color_new := float(total_take_items) / float(total_items)
+	percentage_color = lerpf(percentage_color, percentage_color_new, delta)
+	RenderingServer.global_shader_parameter_set("grayscale", percentage_color)
+	
 
 func start_items_in_map() -> void:
 	for key in item_data.ItemDataSpawn:
@@ -33,7 +38,9 @@ func start_items_in_map() -> void:
 
 		var item := scene.instantiate() as Node3D
 		list_items.add_child(item)
+		item.item_name = key
 		item.global_position = Vector3(position["x"], position["y"], position["z"])
 
-func take_item() -> void:
+func take_item(item_name: ItemSpawn.EnumItemName) -> void:
+	print("Item recojido", item_name)
 	total_take_items += 1
