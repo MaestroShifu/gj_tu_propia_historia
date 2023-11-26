@@ -33,6 +33,8 @@ size = 5.0
 
 [node name="Child" parent="World" instance=ExtResource("6_ubjuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, 2.42703, -7.13591)
+speed = null
 listening_range = 5.0
+random_pos_radius = null
 
 [node name="Level" parent="World" instance=ExtResource("5_v64hg")]

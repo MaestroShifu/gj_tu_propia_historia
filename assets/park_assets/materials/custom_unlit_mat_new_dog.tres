@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://btd6glv0iw8cl"]
+
+[ext_resource type="Shader" uid="uid://dto31oty6iwy3" path="res://assets/park_assets/materials/custom_unlit.tres" id="1_nd66g"]
+[ext_resource type="Texture2D" uid="uid://bmjr3t6lwabjx" path="res://assets/Perro_2_AtlasDeTexturas.png" id="2_7gql4"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nd66g")
+shader_parameter/start_displacement = null
+shader_parameter/full_displacement = null
+shader_parameter/speed = null
+shader_parameter/intensity = null
+shader_parameter/vector_control_grayscale = Vector3(0.33, 0.33, 0.33)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.7
+shader_parameter/specular = 0.0
+shader_parameter/main_tex = ExtResource("2_7gql4")

@@ -8,8 +8,11 @@
 render_priority = 0
 next_pass = ExtResource("1_nfvc1")
 shader = ExtResource("2_ryros")
+shader_parameter/start_displacement = null
+shader_parameter/full_displacement = null
+shader_parameter/speed = null
+shader_parameter/intensity = null
 shader_parameter/vector_control_grayscale = Vector3(0.33, 0.33, 0.33)
-shader_parameter/slider_color = 1.0
 shader_parameter/metallic = null
 shader_parameter/roughness = null
 shader_parameter/specular = null
