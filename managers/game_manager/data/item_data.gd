@@ -5,8 +5,8 @@ class_name ItemSpawn
 const ITEM_1 := "ToySheep"
 const ITEM_2 := "ToyShark"
 const ITEM_3 := "ToyPigueon_03"
-const ITEM_4 := "ToyPigueon_02" 
-const ITEM_5 := "ToyPigueon_01" 
+const ITEM_4 := "ToyPigueon_02"
+const ITEM_5 := "ToyPigueon_01"
 const ITEM_6 := "ToyManta"
 
 

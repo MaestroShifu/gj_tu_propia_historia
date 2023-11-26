@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bupn4q12e8ndb"
-path="res://.godot/imported/Nunito-LightItalic.ttf-e7bc12a8c57196c5cabd39f3f9543df1.fontdata"
+path="res://.godot/imported/Nunito-LightItalic.ttf-620097895c39d4fef05f8a659f01537d.fontdata"
 
 [deps]
 
-source_file="res://Style/Nunito/static/Nunito-LightItalic.ttf"
-dest_files=["res://.godot/imported/Nunito-LightItalic.ttf-e7bc12a8c57196c5cabd39f3f9543df1.fontdata"]
+source_file="res://style/Nunito/static/Nunito-LightItalic.ttf"
+dest_files=["res://.godot/imported/Nunito-LightItalic.ttf-620097895c39d4fef05f8a659f01537d.fontdata"]
 
 [params]
 

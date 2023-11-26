@@ -5,6 +5,9 @@
 [node name="Perro" instance=ExtResource("1_6sgw4")]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
 
+[node name="metarig" parent="." index="0"]
+transform = Transform3D(-5.14372, 0, -4.49679e-07, 0, 5.14372, 0, 4.49679e-07, 0, -5.14372, 0.625376, -0.122025, 0)
+
 [node name="Cube_001" parent="metarig" index="0"]
 visible = false
 

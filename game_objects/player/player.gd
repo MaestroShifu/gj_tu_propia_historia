@@ -8,6 +8,7 @@ class_name Player
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var particle_signal: Node3D = %Vfx_dog_signal
+@onready var dog_mesh: Node3D = $Perro
 
 var input_direction: Vector2 = Vector2.ZERO
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -32,6 +33,7 @@ func _physics_process(_delta: float) -> void:
 	velocity.y -= gravity
 
 	move_and_slide()
+	dog_mesh.look_at(global_position + velocity, Vector3.UP)
 
 
 func move_player(in_input_direction: Vector2) -> void:
