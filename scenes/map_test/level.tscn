@@ -69,19 +69,7 @@ shape = SubResource("BoxShape3D_ai3j6")
 [node name="ItemList" type="Node3D" parent="."]
 
 [node name="Item" parent="ItemList" instance=ExtResource("1_h4uqx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3.27088, 0.22125, 4.34961)
-
-[node name="Item2" parent="ItemList" instance=ExtResource("1_h4uqx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.62837, 0.22125, 4.34961)
-
-[node name="Item3" parent="ItemList" instance=ExtResource("1_h4uqx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.58623, 0.22125, -2.13733)
-
-[node name="Item4" parent="ItemList" instance=ExtResource("1_h4uqx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.6359, 0.22125, -0.726745)
-
-[node name="Item5" parent="ItemList" instance=ExtResource("1_h4uqx")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.44167, 0.22125, -2.78742)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27088, 0.22125, 4.34961)
 
 [node name="Floor_Map" type="Sprite3D" parent="."]
 transform = Transform3D(1.49989, 0.0145991, -0.0107104, -0.0145347, 1.4999, 0.00903063, 0.0107976, -0.00892619, 1.49993, -0.0148906, -0.00940263, 0.0161193)
