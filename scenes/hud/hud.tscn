@@ -1,0 +1,735 @@
+[gd_scene load_steps=22 format=3 uid="uid://b1j4qif7y4j0s"]
+
+[ext_resource type="Theme" uid="uid://dui13yk2uy3df" path="res://Style/estilo.tres" id="1_rlq1v"]
+[ext_resource type="Script" path="res://Scenes/HUD.gd" id="2_76cwq"]
+[ext_resource type="FontFile" uid="uid://cw22v6j6ll5jn" path="res://style/Nunito/static/Nunito-Medium.ttf" id="3_gv106"]
+[ext_resource type="Texture2D" uid="uid://4ihvkgdemrkq" path="res://assets/hud/hud_x.svg" id="4_le6pc"]
+[ext_resource type="Texture2D" uid="uid://cxlbp1hk2t3h6" path="res://assets/hud/items/Item_fish.png" id="5_8f74c"]
+[ext_resource type="Texture2D" uid="uid://dla446fnto44e" path="res://assets/hud/hud_tula.png" id="5_alcf0"]
+[ext_resource type="Texture2D" uid="uid://dqj1l1u2fnwqu" path="res://assets/hud/items/Item_fish_hidden.png" id="6_g61ff"]
+[ext_resource type="FontFile" uid="uid://bexrojh87slgs" path="res://style/Nunito/static/Nunito-Bold.ttf" id="6_hllk6"]
+[ext_resource type="Texture2D" uid="uid://c0snes3j0wvof" path="res://assets/hud/items/kid_found2.png" id="9_huutc"]
+[ext_resource type="Texture2D" uid="uid://bolxqajxh287j" path="res://assets/hud/hud_guau.png" id="10_gtpyo"]
+[ext_resource type="Texture2D" uid="uid://dykooh4q8larm" path="res://assets/hud/hud_KeyC.svg" id="11_vjfmo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1dae"]
+bg_color = Color(0.27451, 0.27451, 0.352941, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbf7d"]
+bg_color = Color(0.129412, 0.129412, 0.172549, 1)
+corner_radius_top_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8luni"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hotpp"]
+bg_color = Color(0.203922, 0.203922, 0.262745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7ue0"]
+bg_color = Color(0.113725, 0.160784, 0.266667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.152941, 0.156863, 0.14902, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj58t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji7tu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_k0jdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quest:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3tbwb"]
+resource_name = "quest_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quest:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(0.34151, 0.450626),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1d72"]
+_data = {
+"RESET": SubResource("Animation_k0jdl"),
+"quest_animation": SubResource("Animation_3tbwb")
+}
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rlq1v")
+script = ExtResource("2_76cwq")
+
+[node name="Quest" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -318.0
+offset_top = 128.0
+offset_bottom = 220.0
+grow_horizontal = 0
+pivot_offset = Vector2(318, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Quest"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Quest/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hbf7d")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Quest/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Quest/VBoxContainer/Panel/MarginContainer2"]
+layout_mode = 2
+text = "Misión: Juguetes Perdidos"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Quest/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label2" type="Label" parent="Quest/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+text = "Usa tus ladridos (Tecla: C) para guiar a
+Tommy y encontrar sus juguetes."
+
+[node name="btn_close_quest" type="Button" parent="Quest"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8luni")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hotpp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hotpp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8luni")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8luni")
+
+[node name="TextureRect" type="TextureRect" parent="Quest/btn_close_quest"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_le6pc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Botones" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -179.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_constants/separation = 12
+
+[node name="btn_reiniciar" type="Button" parent="Botones"]
+layout_mode = 2
+focus_mode = 0
+text = "     Reiniciar     "
+
+[node name="btn_salir" type="Button" parent="Botones"]
+layout_mode = 2
+focus_mode = 0
+text = "     Salir     "
+
+[node name="Tula" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -128.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(294, 32)
+theme = ExtResource("1_rlq1v")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tula"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -32.0
+offset_right = 106.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o7ue0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tula/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="PanelContainer2" type="PanelContainer" parent="Tula/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jj58t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tula/PanelContainer/MarginContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="TextureButton" type="TextureButton" parent="Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+texture_normal = ExtResource("5_8f74c")
+texture_disabled = ExtResource("6_g61ff")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+texture_normal = ExtResource("5_8f74c")
+texture_disabled = ExtResource("5_8f74c")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+texture_normal = ExtResource("5_8f74c")
+texture_disabled = ExtResource("6_g61ff")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Tula"]
+custom_minimum_size = Vector2(90, 124)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -62.0
+offset_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="TextureRect" type="TextureRect" parent="Tula/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("5_alcf0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Tula"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -36.0
+offset_right = -25.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("6_hllk6")
+text = "0/3"
+horizontal_alignment = 1
+
+[node name="Personaje" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = -24.0
+grow_vertical = 0
+pivot_offset = Vector2(38, 48)
+
+[node name="Nino" type="TextureRect" parent="Personaje"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -152.0
+offset_right = 152.0
+grow_vertical = 0
+texture = ExtResource("9_huutc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Perrito" type="TextureRect" parent="Personaje"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -192.0
+offset_right = 192.0
+offset_bottom = -128.0
+grow_vertical = 0
+texture = ExtResource("10_gtpyo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Key" type="TextureRect" parent="Personaje"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 171.0
+offset_top = -149.0
+offset_right = 195.0
+offset_bottom = -125.0
+grow_vertical = 0
+texture = ExtResource("11_vjfmo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Menu" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Panel" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -157.5
+offset_right = 312.0
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="controles" type="PanelContainer" parent="Menu/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/VBoxContainer/HBoxContainer/controles"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Instrucciones" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_hllk6")
+theme_override_font_sizes/font_size = 24
+text = "Controles"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Movimiento" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+text = "Movimiento"
+horizontal_alignment = 1
+
+[node name="wasd" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "WASD"
+horizontal_alignment = 1
+
+[node name="Habilidad" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+text = "Habilidades"
+horizontal_alignment = 1
+
+[node name="R" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "\"C\" - Aullido"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Objetivo" type="PanelContainer" parent="Menu/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(450, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Instrucciones" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_hllk6")
+theme_override_font_sizes/font_size = 24
+text = "Objetivo"
+horizontal_alignment = 1
+
+[node name="contenido" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Tommy ha perdido sus juguetes, y tu como su perro
+guía, estas decidido a encontrarlos.
+"
+horizontal_alignment = 1
+
+[node name="contenido3" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "
+¡Utiliza tu aullido para guiar a Tommy!"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Habilidad" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 20
+text = "Ten en cuenta"
+horizontal_alignment = 1
+
+[node name="contenido2" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "El rango de audición tuyo y de Tommy son limitados."
+horizontal_alignment = 1
+
+[node name="btn_empezar" type="Button" parent="Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "       Empezar       "
+
+[node name="Win" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Panel" parent="Win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quest" type="PanelContainer" parent="Win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -256.0
+offset_right = 199.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
+
+[node name="MarginContainer" type="MarginContainer" parent="Win/Quest"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Win/Quest/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label2" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_hllk6")
+theme_override_font_sizes/font_size = 24
+text = "¡Felicidades!
+Completaste el juego"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Label" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_hllk6")
+text = "Autores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Programadores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Maestro Shifu and Jonathan Corona
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Artista Técnico"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "MrAlex
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Diseño y Arte"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Andrés Castillo \"visualdavid\" and Andrea \"Nottzabi\"
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Modelos 3D e historia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Martha Lucia Gallego López"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Compositora"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Win/Quest/MarginContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Luisa Zamara
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Win/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="btn_salir" type="Button" parent="Win/Quest/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "       Salir       "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_g1d72")
+}
+
+[connection signal="pressed" from="Quest/btn_close_quest" to="." method="_on_btn_close_quest_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/btn_empezar" to="." method="_on_btn_empezar_pressed"]
