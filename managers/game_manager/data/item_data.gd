@@ -6,9 +6,9 @@ var ItemDataSpawn: Dictionary = {
 	"ToySheep": {
 		"scene": preload("res://game_objects/item/items_main/item_sheep.tscn"),
 		"position": [
-			{ "x": 3.78, "y": 0.30, "z": -3.59 },
-			{ "x": 14.59, "y": 0.30, "z": 6.35 },
-			{ "x": -22.33, "y": 0.30, "z": 18.29 },
+			{ "x": 0, "y": 0.30, "z": 0 },
+			{ "x": 0, "y": 0.30, "z": 0 },
+			{ "x": 0, "y": 0.30, "z": 0 },
 		]
 	},
 	"ToyShark": {
