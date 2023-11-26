@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://s2st2g6d7nci"]
+[gd_scene load_steps=12 format=3 uid="uid://s2st2g6d7nci"]
 
 [ext_resource type="PackedScene" uid="uid://cyi0i116e5k0i" path="res://scenes/props/tree.tscn" id="1_nispu"]
 [ext_resource type="PackedScene" uid="uid://dvfrnn3xxlj8j" path="res://scenes/props/fence.tscn" id="2_jfpwb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://kklyrxclkcuc" path="res://scenes/props/slide.tscn" id="7_28mp3"]
 [ext_resource type="PackedScene" uid="uid://jgxbqcehnrip" path="res://scenes/props/swing.tscn" id="8_tqcf0"]
 [ext_resource type="Texture2D" uid="uid://c6srykqk56wry" path="res://assets/map/SueloPlayGround.png" id="9_kvefp"]
+[ext_resource type="Material" uid="uid://o64j5ofjq77f" path="res://assets/park_assets/materials/custom_unlit_mat_new_2D.tres" id="9_t5lip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3mx53"]
 size = Vector3(1.84, 1, 63.1519)
@@ -263,6 +264,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3886, 0, -17.6747)
 
 [node name="Floor_Map" type="Sprite3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+material_override = ExtResource("9_t5lip")
 axis = 1
 shaded = true
 texture = ExtResource("9_kvefp")

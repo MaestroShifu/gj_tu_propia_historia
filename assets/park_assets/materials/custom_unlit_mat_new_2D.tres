@@ -1,23 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://o64j5ofjq77f"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://o64j5ofjq77f"]
 
 [ext_resource type="Shader" uid="uid://crtilfml84obt" path="res://assets/park_assets/materials/custom_unlit_2D.tres" id="1_stw25"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cqks6"]
-noise_type = 5
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e5ofg"]
-seamless = true
-noise = SubResource("FastNoiseLite_cqks6")
+[ext_resource type="Texture2D" uid="uid://c6srykqk56wry" path="res://assets/map/SueloPlayGround.png" id="2_ho2jl"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_stw25")
-shader_parameter/start_displacement = 0.0
-shader_parameter/full_displacement = 0.0
-shader_parameter/speed = 0.0
-shader_parameter/intensity = 0.0
 shader_parameter/vector_control_grayscale = Vector3(0.33, 0.33, 0.33)
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.4
-shader_parameter/specular = 0.0
-shader_parameter/noise_movement = SubResource("NoiseTexture2D_e5ofg")
+shader_parameter/main_tex = ExtResource("2_ho2jl")
