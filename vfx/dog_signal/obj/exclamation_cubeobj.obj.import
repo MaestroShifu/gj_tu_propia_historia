@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://q1xgkm83h7fe"
+path="res://.godot/imported/exclamation_cubeobj.obj-729864aa439c75e89fa06ea963d91d08.mesh"
+
+[deps]
+
+files=["res://.godot/imported/exclamation_cubeobj.obj-729864aa439c75e89fa06ea963d91d08.mesh"]
+
+source_file="res://vfx/dog_signal/obj/exclamation_cubeobj.obj"
+dest_files=["res://.godot/imported/exclamation_cubeobj.obj-729864aa439c75e89fa06ea963d91d08.mesh", "res://.godot/imported/exclamation_cubeobj.obj-729864aa439c75e89fa06ea963d91d08.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

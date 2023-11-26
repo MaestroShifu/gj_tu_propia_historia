@@ -7,6 +7,7 @@ class_name Player
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var particle_signal: Node3D = %Vfx_dog_signal
 
 var input_direction: Vector2 = Vector2.ZERO
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -73,6 +74,9 @@ func calculate_percentage(distance: float) -> float:
 
 func flicker_percentage(percentage: float) -> void:
 	if percentage >= 80:
+#		for idx in particle_signal.get_child_count():
+#			var particle: GPUParticles3D = particle_signal.get_child(idx) as GPUParticles3D
+#			particle.set_emitting(true)
 		animation_player.play("Flicker_90")
 		return
 	if percentage >= 40:
