@@ -1,25 +1,22 @@
 [gd_scene load_steps=10 format=3 uid="uid://dhtcd8qtg5tql"]
 
-[ext_resource type="PackedScene" uid="uid://bop8hlrmhcc7d" path="res://managers/game_manager/game_manager.tscn" id="1_nrjmo"]
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
 [ext_resource type="Script" path="res://game_objects/world.gd" id="2_cu15j"]
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
+[ext_resource type="PackedScene" uid="uid://bop8hlrmhcc7d" path="res://managers/game_manager/game_manager.tscn" id="3_f4ham"]
 [ext_resource type="PackedScene" uid="uid://bmqjfhwg11cwf" path="res://game_objects/camera_tripod/camera_tripod.tscn" id="3_lyv2k"]
 [ext_resource type="Script" path="res://game_objects/timeout_manager.gd" id="3_vompf"]
 [ext_resource type="PackedScene" uid="uid://b7m2387lyb1bf" path="res://game_objects/camera/camera.tscn" id="4_k48vc"]
 [ext_resource type="PackedScene" uid="uid://daam66frohisy" path="res://scenes/map_test/level.tscn" id="5_v64hg"]
 [ext_resource type="PackedScene" uid="uid://cgpj07rqrg6pg" path="res://game_objects/child/child.tscn" id="6_ubjuo"]
-[ext_resource type="Script" path="res://managers/game_manager/game_manager.gd" id="8_vyku4"]
 
 [node name="Main" type="Node"]
 
 [node name="Manager" type="Node" parent="."]
 
-[node name="GameManager" type="Node" parent="Manager"]
-script = ExtResource("8_vyku4")
-time_out_value = 60.0
-
 [node name="InputManager" parent="Manager" instance=ExtResource("1_u7i8u")]
+
+[node name="GameManager" parent="Manager" instance=ExtResource("3_f4ham")]
 
 [node name="TimeOutManager" type="Timer" parent="Manager"]
 script = ExtResource("3_vompf")

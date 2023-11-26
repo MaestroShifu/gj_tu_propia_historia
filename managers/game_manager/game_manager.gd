@@ -11,6 +11,7 @@ enum GAME_STATES {
 
 ## Time in seconds for gameplay duration from 1 minute to 10 minutes
 @export_range(60, 600) var time_out_value : float = 180
+
 @onready var time_out_manager: Timer = $"../TimeOutManager"
 @onready var item_data: ItemSpawn = ItemSpawn.new()
 @onready var list_items: Node3D = $ListItems
