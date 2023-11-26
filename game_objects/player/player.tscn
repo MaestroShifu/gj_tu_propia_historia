@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_aylh3"]
 [ext_resource type="AudioStream" uid="uid://cv54t5hpgrjkf" path="res://audios/SFX/sfx_dog_bark.wav" id="2_c33jh"]
-[ext_resource type="PackedScene" uid="uid://bx6mcmsw4xg55" path="res://scenes/perro.tscn" id="3_1lx8j"]
+[ext_resource type="PackedScene" path="res://scenes/perro.tscn" id="3_1lx8j"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g3y03"]
 height = 1.0
