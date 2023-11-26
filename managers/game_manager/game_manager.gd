@@ -37,20 +37,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if total_items == total_take_items:
 		is_win = true
-	
+
 	var percentage_color_new := float(total_take_items) / float(total_items)
 	percentage_color = lerpf(percentage_color, percentage_color_new, delta)
 	RenderingServer.global_shader_parameter_set("grayscale", percentage_color)
-	
+
 
 func start_items_in_map() -> void:
 	for key in item_data.ItemDataSpawn:
 		var scene := item_data.ItemDataSpawn[key].scene as Resource
 		var positions := item_data.ItemDataSpawn[key].position as Array
-		
+
 		if len(positions) == 0:
 			continue
-		
+
 		var position := positions[randi() % positions.size()] as Dictionary
 		if not position.has_all(["x", "y", "z"]):
 			continue
