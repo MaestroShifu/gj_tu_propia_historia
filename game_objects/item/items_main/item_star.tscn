@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8r35706c5ppv"]
+
+[ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_1tj7o"]
+[ext_resource type="ArrayMesh" uid="uid://djgl2bo3gqede" path="res://assets/park_assets/obj/Star.obj" id="2_hyoxx"]
+
+[node name="Item_Star" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_1tj7o")
+mesh = ExtResource("2_hyoxx")

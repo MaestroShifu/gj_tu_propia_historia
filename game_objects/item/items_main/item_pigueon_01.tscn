@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://23wmooebkm0b"]
+
+[ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_y8mgb"]
+[ext_resource type="ArrayMesh" uid="uid://cpo65555iuc5r" path="res://assets/park_assets/obj/Pigeon01.obj" id="2_mtttv"]
+
+[node name="Item_Pigueon_01" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_y8mgb")
+mesh = ExtResource("2_mtttv")
