@@ -1,5 +1,17 @@
 extends Node
 
+signal game_over
+
+enum GAME_STATES {
+	READY,
+	PLAYING,
+	PAUSED,
+	GAME_OVER
+}
+
+## Time in seconds for gameplay duration from 1 minute to 10 minutes
+@export_range(60, 600) var time_out_value : float = 180
+@onready var time_out_manager: Timer = $"../TimeOutManager"
 @onready var item_data: ItemSpawn = ItemSpawn.new()
 @onready var list_items: Node3D = $ListItems
 
@@ -9,10 +21,16 @@ var percentage_color: float = 0
 
 var is_win: bool = false
 
+var game_state : GAME_STATES = GAME_STATES.READY
+
+
 func _ready() -> void:
 	start_items_in_map()
 	total_items = len(get_tree().get_nodes_in_group("Item"))
 	GameEvents.take_item.connect(take_item)
+
+	time_out_manager.init(time_out_value)
+	time_out_manager.time_is_eover.connect(on_time_is_eover)
 
 
 func _process(delta: float) -> void:
@@ -44,3 +62,12 @@ func start_items_in_map() -> void:
 func take_item(item_name: ItemSpawn.EnumItemName) -> void:
 	print("Item recojido", item_name)
 	total_take_items += 1
+
+
+func change_game_state(new_state: GAME_STATES) -> void:
+	game_state = new_state
+
+
+func on_time_is_eover() -> void:
+	change_game_state(GAME_STATES.GAME_OVER)
+	game_over.emit()
