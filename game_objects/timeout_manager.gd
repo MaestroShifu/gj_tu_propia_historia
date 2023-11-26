@@ -8,9 +8,10 @@ func _ready() -> void:
 		init()
 
 
-func _process(delta: float) -> void:
-	if is_running():
-		print(left_time_format())
+func _process(_delta: float) -> void:
+	pass
+	#if is_running():
+	#	print(left_time_format())
 
 
 func init(init_time : float = 0) -> void:

@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://5bgvrt2oobh2"]
+[gd_scene load_steps=19 format=3 uid="uid://5bgvrt2oobh2"]
 
+[ext_resource type="Script" path="res://vfx/dog_signal/dog_signal.gd" id="1_1rg6i"]
 [ext_resource type="Texture2D" uid="uid://beyrb4c5pttkh" path="res://vfx/dog_signal/materials/flare_01.png" id="2_ueyi3"]
 [ext_resource type="ArrayMesh" uid="uid://q1xgkm83h7fe" path="res://vfx/dog_signal/obj/exclamation_cubeobj.obj" id="3_v8yhx"]
 
@@ -84,6 +85,7 @@ color_ramp = SubResource("GradientTexture1D_p150l")
 [sub_resource type="QuadMesh" id="QuadMesh_7xpfp"]
 
 [node name="Vfx_dog_signal" type="Node3D"]
+script = ExtResource("1_1rg6i")
 
 [node name="Exclamation_mesh" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_k71ky")
