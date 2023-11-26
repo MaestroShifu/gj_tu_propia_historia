@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cax7di5b64ap5"]
 
 [ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_23i05"]
-[ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_hthhh"]
+[ext_resource type="Script" path="res://game_objects/item/items_main/item_shark.gd" id="1_wf68k"]
 [ext_resource type="ArrayMesh" uid="uid://ftks2usvtqq2" path="res://assets/park_assets/obj/Shark.obj" id="2_sf7we"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ys3v4"]
@@ -10,8 +10,8 @@ points = PackedVector3Array(-0.0529103, 0.0384286, 0.352428, 0.446817, 0.0570026
 [sub_resource type="SphereShape3D" id="SphereShape3D_khgya"]
 radius = 0.7
 
-[node name="ToyShark" type="Node3D"]
-script = ExtResource("1_hthhh")
+[node name="ToyShark" type="Node3D" groups=["Item"]]
+script = ExtResource("1_wf68k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_23i05")

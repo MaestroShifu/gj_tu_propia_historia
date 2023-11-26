@@ -37,11 +37,11 @@ func move_player(in_input_direction: Vector2) -> void:
 	input_direction = in_input_direction
 
 
-func filter_distance_valid(item: Item) -> bool:
+func filter_distance_valid(item: Node3D) -> bool:
 	return global_position.distance_to(item.global_position) <= range_of_search
 
 
-func map_item_to_distance(item: Item) -> float:
+func map_item_to_distance(item: Node3D) -> float:
 	return global_position.distance_to(item.global_position)
 
 

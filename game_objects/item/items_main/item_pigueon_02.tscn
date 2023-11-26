@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b70dqgnv2obn8"]
 
-[ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_4pc5w"]
 [ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_wmjnw"]
+[ext_resource type="Script" path="res://game_objects/item/items_main/item_pigueon_02.gd" id="1_x22k0"]
 [ext_resource type="ArrayMesh" uid="uid://6ysp621n3nv4" path="res://assets/park_assets/obj/Pigeon02.obj" id="2_kwb3v"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c7n8p"]
@@ -10,8 +10,8 @@ points = PackedVector3Array(0.0477753, 1.07944, 0.213459, -0.0912195, -0.0093244
 [sub_resource type="SphereShape3D" id="SphereShape3D_lbka0"]
 radius = 1.0
 
-[node name="ToyPigueon_02" type="Node3D"]
-script = ExtResource("1_4pc5w")
+[node name="ToyPigueon_02" type="Node3D" groups=["Item"]]
+script = ExtResource("1_x22k0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_wmjnw")

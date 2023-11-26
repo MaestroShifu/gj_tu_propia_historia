@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://daam66frohisy"]
+[gd_scene load_steps=5 format=3 uid="uid://daam66frohisy"]
 
 [ext_resource type="Environment" uid="uid://daxky6e86ynii" path="res://vfx/enviroment/materials/enviroment_settings_light.tres" id="1_8rl82"]
-[ext_resource type="PackedScene" uid="uid://ctmemck5o0kci" path="res://game_objects/item/item.tscn" id="1_h4uqx"]
 [ext_resource type="PackedScene" uid="uid://s2st2g6d7nci" path="res://scenes/props/map_enviro.tscn" id="3_8nvxu"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_q6410"]
@@ -43,10 +42,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.605474, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D2/StaticBody3D"]
 shape = SubResource("BoxShape3D_ai3j6")
-
-[node name="ItemList" type="Node3D" parent="."]
-
-[node name="Item" parent="ItemList" instance=ExtResource("1_h4uqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27088, 0.22125, 4.34961)
 
 [node name="Enviro" parent="." instance=ExtResource("3_8nvxu")]

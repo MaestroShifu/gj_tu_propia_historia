@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4t5oipc773c7"]
 
 [ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_kydxo"]
-[ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_s4e67"]
+[ext_resource type="Script" path="res://game_objects/item/items_main/item_sheep.gd" id="1_vs4c2"]
 [ext_resource type="ArrayMesh" uid="uid://j0chqc0c1hvo" path="res://assets/park_assets/obj/Sheep.obj" id="2_2rxdx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i1t84"]
@@ -10,8 +10,8 @@ points = PackedVector3Array(0.0334194, 0.940233, 0.507049, -0.203687, 0.0132245,
 [sub_resource type="SphereShape3D" id="SphereShape3D_blifk"]
 radius = 0.8
 
-[node name="ToySheep" type="Node3D"]
-script = ExtResource("1_s4e67")
+[node name="ToySheep" type="Node3D" groups=["Item"]]
+script = ExtResource("1_vs4c2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_kydxo")

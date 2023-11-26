@@ -1,10 +1,28 @@
 extends Node
 
-# Called when the node enters the scene tree for the first time.
+@onready var item_data: ItemSpawn = ItemSpawn.new()
+@onready var list_items: Node3D = $ListItems
+
 func _ready() -> void:
-	pass # Replace with function body.
+	start_items_in_map()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
+
+
+func start_items_in_map() -> void:
+	for key in item_data.ItemDataSpawn:
+		var scene = item_data.ItemDataSpawn[key].scene
+		var positions := item_data.ItemDataSpawn[key].position as Array
+		
+		if len(positions) == 0:
+			continue
+		
+		var position := positions[randi() % positions.size()] as Dictionary
+		if not position.has_all(["x", "y", "z"]):
+			continue
+
+		var item = scene.instantiate() as Node3D
+		list_items.add_child(item)
+		item.global_position = Vector3(position["x"], position["y"], position["z"])
