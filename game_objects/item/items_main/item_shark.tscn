@@ -1,10 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cax7di5b64ap5"]
+[gd_scene load_steps=6 format=3 uid="uid://cax7di5b64ap5"]
 
 [ext_resource type="Material" uid="uid://b3b7vw2pejlmn" path="res://assets/park_assets/materials/custom_unlit_mat_new.tres" id="1_23i05"]
+[ext_resource type="Script" path="res://game_objects/item/item.gd" id="1_hthhh"]
 [ext_resource type="ArrayMesh" uid="uid://ftks2usvtqq2" path="res://assets/park_assets/obj/Shark.obj" id="2_sf7we"]
 
-[node name="Item_Shark" type="Node3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ys3v4"]
+points = PackedVector3Array(-0.0529103, 0.0384286, 0.352428, 0.446817, 0.0570026, 0.0936277, -0.00645047, -0.0269402, -0.493786, -0.442994, 0.0738128, 0.0432478, 0.0102727, 0.392665, -0.560994, -0.0540736, 0.226054, 0.488597, 0.211734, 0.275156, 0.446181, -0.207912, 0.275156, 0.446181, -0.0232607, 0.527039, -0.0237499, -0.442994, 0.0234363, 0.0432478, 0.0270829, 0.527039, -0.0237499, 0.446817, 0.0402466, 0.0264195, 0.200793, 0.146634, 0.437728, -0.0232607, 0.392665, -0.560994, 0.0410121, 0.00722132, 0.211154, -0.215526, 0.161501, 0.443358, 0.361502, 0.0342809, 0.183948, 0.00964014, 0.506085, 0.100303, 0.0259347, 0.113887, 0.472926, 0.430006, 0.0234363, 0.0432478, 0.446817, 0.0570026, 0.0264195, 0.0102727, -0.0269402, -0.493786, 0.0270829, 0.392665, -0.544166, -0.409374, 0.0738128, 0.177559, -0.0232607, 0.409421, -0.544166, -0.0232607, -0.01013, -0.493786, 0.0411561, 0.053517, 0.400693, -0.352122, 0.0376163, 0.196414, -0.442994, 0.0402466, 0.0264195, -0.0372438, 0.00688664, 0.211477, 0.0102727, -0.0269402, -0.426683, -0.0532997, 0.0684937, 0.418208)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_khgya"]
+radius = 0.7
+
+[node name="ToyShark" type="Node3D"]
+script = ExtResource("1_hthhh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_23i05")
 mesh = ExtResource("2_sf7we")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ys3v4")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_khgya")

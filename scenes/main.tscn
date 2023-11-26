@@ -27,12 +27,12 @@ range_of_search = 3.0
 speed_camera_movement = 90.0
 
 [node name="Camera" parent="World/Player/CameraTripod" instance=ExtResource("4_k48vc")]
-transform = Transform3D(0.997785, -0.0425816, 0.0511029, 0, 0.768252, 0.640148, -0.0665184, -0.63873, 0.76655, 0.744827, 9.33018, 11.1725)
+transform = Transform3D(0.997785, -0.0425813, 0.0511027, 0, 0.768254, 0.640146, -0.066518, -0.638729, 0.766552, 0.744829, 9.33022, 11.1726)
 fov = 60.0
 size = 5.0
 
 [node name="Child" parent="World" instance=ExtResource("6_ubjuo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, 2.42703, 3.55255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, 2.42703, -7.13591)
 listening_range = 5.0
 
 [node name="Level" parent="World" instance=ExtResource("5_v64hg")]
