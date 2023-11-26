@@ -48,7 +48,7 @@ func map_item_to_distance(item: Item) -> float:
 func calculate_distance_to_item() -> void:
 	var nodes := get_tree().get_nodes_in_group("Item")
 	var items_distance_min_valid := nodes.filter(filter_distance_valid).map(map_item_to_distance)
-	
+
 	if len(items_distance_min_valid) == 0:
 		min_item_distance = 0
 	else:
@@ -58,7 +58,7 @@ func calculate_distance_to_item() -> void:
 				min_item_distance = distance
 			if distance < min_item_distance:
 				min_item_distance = distance
-	
+
 	var percentage := calculate_percentage(min_item_distance)
 	flicker_percentage(percentage)
 
@@ -81,7 +81,7 @@ func flicker_percentage(percentage: float) -> void:
 	if percentage >= 20:
 		animation_player.play("Flicker_50")
 		return
-	
+
 	animation_player.play("RESET")
 
 
