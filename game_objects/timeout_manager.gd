@@ -2,7 +2,7 @@ extends Timer
 
 signal time_is_eover()
 
-@onready var hud: Hud = $"../../hud"  as Hud
+@onready var hud: HudGame = $"../../hud"  as HudGame
 
 
 func _ready() -> void:

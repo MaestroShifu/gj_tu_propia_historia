@@ -1,5 +1,5 @@
 extends Control
-class_name Hud
+class_name HudGame
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var menu: Control = %Menu
@@ -35,3 +35,4 @@ func _on_btn_reiniciar_pressed() -> void:
 
 func _on_btn_salir_pressed() -> void:
 	pass # Replace with function body.
+
