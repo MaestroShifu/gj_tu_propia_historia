@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://b1j4qif7y4j0s"]
 
-[ext_resource type="Theme" uid="uid://b0k14a8ogyygl" path="res://Style/estilo.tres" id="1_rlq1v"]
+[ext_resource type="Theme" path="res://Style/estilo.tres" id="1_rlq1v"]
 [ext_resource type="Script" path="res://Scenes/HUD.gd" id="2_76cwq"]
 [ext_resource type="FontFile" uid="uid://cw22v6j6ll5jn" path="res://style/Nunito/static/Nunito-Medium.ttf" id="3_gv106"]
 [ext_resource type="Texture2D" uid="uid://4ihvkgdemrkq" path="res://assets/hud/hud_x.svg" id="4_le6pc"]
@@ -764,4 +764,6 @@ text = "02:00"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Quest/btn_close_quest" to="." method="_on_btn_close_quest_pressed"]
+[connection signal="pressed" from="Botones/btn_reiniciar" to="." method="_on_btn_reiniciar_pressed"]
+[connection signal="pressed" from="Botones/btn_salir" to="." method="_on_btn_salir_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/btn_empezar" to="." method="_on_btn_empezar_pressed"]

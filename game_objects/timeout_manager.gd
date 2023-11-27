@@ -2,6 +2,8 @@ extends Timer
 
 signal time_is_eover()
 
+@onready var hud: Hud = $"../../hud"  as Hud
+
 
 func _ready() -> void:
 	if autostart:
@@ -9,9 +11,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
-	#if is_running():
-	#	print(left_time_format())
+	if is_running():
+		hud.time_text.text = time_format(time_left)
 
 
 func init(init_time : float = 0) -> void:
@@ -32,8 +33,8 @@ func _on_timeout() -> void:
 	time_is_eover.emit()
 
 
-func left_time_format() -> String:
-	var seconds = fmod(time_left, 60)
-	var minutes = fmod((time_left/60), 60)
+func time_format(time_in_secs : float) -> String:
+	var seconds = fmod(time_in_secs, 60)
+	var minutes = fmod((time_in_secs/60), 60)
 
 	return "%02d:%02d" % [minutes, seconds]
