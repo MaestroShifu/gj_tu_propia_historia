@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1j4qif7y4j0s"]
+[gd_scene load_steps=24 format=3 uid="uid://b1j4qif7y4j0s"]
 
 [ext_resource type="Theme" uid="uid://dn8recnjj3vax" path="res://style/estilo.tres" id="1_rlq1v"]
 [ext_resource type="Script" path="res://scenes/hud/hud_game.gd" id="2_wx16m"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://bexrojh87slgs" path="res://style/Nunito/static/Nunito-Bold.ttf" id="6_hllk6"]
 [ext_resource type="Texture2D" uid="uid://c0snes3j0wvof" path="res://assets/hud/items/kid_found2.png" id="9_huutc"]
 [ext_resource type="Texture2D" uid="uid://bolxqajxh287j" path="res://assets/hud/hud_guau.png" id="10_gtpyo"]
+[ext_resource type="Shader" uid="uid://dgxsbg5b1jkg" path="res://vfx/fill_cooldown.tres" id="11_st2pk"]
 [ext_resource type="Texture2D" uid="uid://dykooh4q8larm" path="res://assets/hud/hud_KeyC.svg" id="11_vjfmo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1dae"]
@@ -43,6 +44,11 @@ corner_radius_bottom_left = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj58t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o87cq"]
+shader = ExtResource("11_st2pk")
+shader_parameter/ColorParameter = Color(0.443137, 0.760784, 0.505882, 1)
+shader_parameter/FloatParameter = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji7tu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -337,6 +343,21 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Perrito" type="TextureRect" parent="Personaje"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -192.0
+offset_right = 192.0
+offset_bottom = -128.0
+grow_vertical = 0
+texture = ExtResource("10_gtpyo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="fill_cooldown" type="TextureRect" parent="Personaje"]
+material = SubResource("ShaderMaterial_o87cq")
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
