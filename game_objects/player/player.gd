@@ -33,7 +33,8 @@ func _physics_process(_delta: float) -> void:
 	velocity.y -= gravity
 
 	move_and_slide()
-	# dog_mesh.look_at(global_position + velocity, Vector3.UP)
+	if !velocity.is_zero_approx():
+		dog_mesh.look_at(global_position + velocity, Vector3.UP)
 
 
 func move_player(in_input_direction: Vector2) -> void:
@@ -54,13 +55,13 @@ func calculate_distance_to_item() -> void:
 			min_item_distance = distance
 		if distance < min_item_distance:
 			min_item_distance = distance
-	
+
 	var particle: GPUParticles3D = particle_signal.get_child(0) as GPUParticles3D
-	print(min_item_distance)
+
 	if min_item_distance > range_of_search:
 		particle.emitting = false
 		return
-	
+
 	var percentage := calculate_percentage(min_item_distance)
 	if percentage >= 50:
 		particle_signal.boiling()

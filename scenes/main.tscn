@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhtcd8qtg5tql"]
+[gd_scene load_steps=11 format=3 uid="uid://dhtcd8qtg5tql"]
 
+[ext_resource type="PackedScene" uid="uid://b1j4qif7y4j0s" path="res://scenes/hud/hud.tscn" id="1_07c0g"]
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
 [ext_resource type="Script" path="res://game_objects/world.gd" id="2_cu15j"]
 [ext_resource type="PackedScene" uid="uid://dmjdq2gu0n3il" path="res://game_objects/player/player.tscn" id="2_h57fj"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cgpj07rqrg6pg" path="res://game_objects/child/child.tscn" id="6_ubjuo"]
 
 [node name="Main" type="Node"]
+
+[node name="hud" parent="." instance=ExtResource("1_07c0g")]
 
 [node name="Manager" type="Node" parent="."]
 

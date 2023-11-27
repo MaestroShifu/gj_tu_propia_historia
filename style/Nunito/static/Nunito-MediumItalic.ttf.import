@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b121nlopifbas"
-path="res://.godot/imported/Nunito-MediumItalic.ttf-c20bb7ee025ed14719f948c400b0aa84.fontdata"
+path="res://.godot/imported/Nunito-MediumItalic.ttf-555f4ae5cf7c6fdffb1fdb70466f224d.fontdata"
 
 [deps]
 
-source_file="res://style/Nunito/static/Nunito-MediumItalic.ttf"
-dest_files=["res://.godot/imported/Nunito-MediumItalic.ttf-c20bb7ee025ed14719f948c400b0aa84.fontdata"]
+source_file="res://Style/Nunito/static/Nunito-MediumItalic.ttf"
+dest_files=["res://.godot/imported/Nunito-MediumItalic.ttf-555f4ae5cf7c6fdffb1fdb70466f224d.fontdata"]
 
 [params]
 
