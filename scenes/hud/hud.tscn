@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://b1j4qif7y4j0s"]
 
-[ext_resource type="Theme" path="res://Style/estilo.tres" id="1_rlq1v"]
-[ext_resource type="Script" path="res://Scenes/HUD.gd" id="2_76cwq"]
+[ext_resource type="Theme" uid="uid://dui13yk2uy3df" path="res://style/estilo.tres" id="1_rlq1v"]
+[ext_resource type="Script" path="res://scenes/hud/hud_game.gd" id="2_wx16m"]
 [ext_resource type="FontFile" uid="uid://cw22v6j6ll5jn" path="res://style/Nunito/static/Nunito-Medium.ttf" id="3_gv106"]
 [ext_resource type="Texture2D" uid="uid://4ihvkgdemrkq" path="res://assets/hud/hud_x.svg" id="4_le6pc"]
 [ext_resource type="Texture2D" uid="uid://cxlbp1hk2t3h6" path="res://assets/hud/items/Item_fish.png" id="5_8f74c"]
@@ -91,7 +91,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rlq1v")
-script = ExtResource("2_76cwq")
+script = ExtResource("2_wx16m")
 
 [node name="Quest" type="PanelContainer" parent="."]
 visible = false
@@ -366,7 +366,6 @@ stretch_mode = 5
 
 [node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

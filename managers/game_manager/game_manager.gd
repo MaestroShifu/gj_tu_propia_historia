@@ -15,7 +15,7 @@ enum GAME_STATES {
 @onready var time_out_manager: Timer = $"../TimeOutManager"
 @onready var item_data: ItemSpawn = ItemSpawn.new()
 @onready var list_items: Node3D = $ListItems
-@onready var hud: Hud = $"../../hud" as Hud
+@onready var hud: HudGame = $"../../hud" as HudGame
 
 var total_items: int = 0
 var total_take_items: int = 0
