@@ -366,6 +366,7 @@ stretch_mode = 5
 
 [node name="Menu" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -725,6 +726,202 @@ size_flags_horizontal = 4
 focus_mode = 0
 text = "       Salir       "
 
+[node name="Lose" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Panel" parent="Lose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quest" type="PanelContainer" parent="Lose"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -256.0
+offset_right = 199.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
+
+[node name="MarginContainer" type="MarginContainer" parent="Lose/Quest"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lose/Quest/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label2" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_hllk6")
+theme_override_font_sizes/font_size = 24
+text = "Lastima no lo lograste ='(
+Pero puedes intentarlo de nuevo =)"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Label" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_hllk6")
+text = "Autores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Programadores"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Maestro Shifu and Jonathan Corona
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Artista Técnico"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "MrAlex
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Diseño y Arte"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Andrés Castillo \"visualdavid\" and Andrea \"Nottzabi\"
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Modelos 3D e historia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Martha Lucia Gallego López"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_gv106")
+theme_override_font_sizes/font_size = 14
+text = "Compositora"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Lose/Quest/MarginContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Luisa Zamara
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="btn_salir" type="Button" parent="Lose/Quest/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "       Intentar de nuevo       "
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -766,3 +963,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Botones/btn_reiniciar" to="." method="_on_btn_reiniciar_pressed"]
 [connection signal="pressed" from="Botones/btn_salir" to="." method="_on_btn_salir_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/btn_empezar" to="." method="_on_btn_empezar_pressed"]
+[connection signal="pressed" from="Lose/Quest/MarginContainer/VBoxContainer/btn_salir" to="." method="_on_btn_reiniciar_pressed"]

@@ -30,6 +30,7 @@ func is_running() -> bool:
 
 
 func _on_timeout() -> void:
+	stop()
 	time_is_eover.emit()
 
 

@@ -9,6 +9,12 @@ class_name HudGame
 @onready var item_count: Label = $Tula/item_count
 @onready var time_text: Label = %Time_text
 @onready var btn_empezar: Button = $Menu/VBoxContainer/btn_empezar
+@onready var lose: Control = $Lose
+
+func _ready() -> void:
+	menu.set_visible(true)
+	win.set_visible(false)
+	lose.set_visible(false)
 
 
 func _on_btn_empezar_pressed():
@@ -36,3 +42,10 @@ func _on_btn_reiniciar_pressed() -> void:
 func _on_btn_salir_pressed() -> void:
 	pass # Replace with function body.
 
+
+func show_win_notice():
+	win.set_visible(true)
+
+
+func show_lose_notice():
+	lose.set_visible(true)

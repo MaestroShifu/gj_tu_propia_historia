@@ -72,6 +72,9 @@ func take_item(item_name: ItemSpawn.EnumItemName) -> void:
 	total_take_items += 1
 	hud.update_total_items_ui(total_items, total_take_items)
 
+	if total_items == total_take_items:
+		hud.show_win_notice()
+
 
 func change_game_state(new_state: GAME_STATES) -> void:
 	game_state = new_state
@@ -80,6 +83,7 @@ func change_game_state(new_state: GAME_STATES) -> void:
 func on_time_is_eover() -> void:
 	change_game_state(GAME_STATES.GAME_OVER)
 	game_over.emit()
+	hud.show_lose_notice()
 
 
 func on_btn_empezar_pressed() -> void:
