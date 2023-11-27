@@ -27,6 +27,7 @@ shader_parameter/FloatParameter = 0.0
 [node name="InputManager" parent="Manager" instance=ExtResource("1_u7i8u")]
 
 [node name="GameManager" parent="Manager" instance=ExtResource("3_f4ham")]
+unique_name_in_owner = true
 time_out_value = 60.0
 
 [node name="TimeOutManager" type="Timer" parent="Manager"]

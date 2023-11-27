@@ -11,7 +11,12 @@ class_name HudGame
 @onready var btn_empezar: Button = $Menu/VBoxContainer/btn_empezar
 @onready var lose: Control = $Lose
 
+var img_found : Texture2D = preload("res://assets/hud/items/kid_found.png") as Texture2D
+var img_lost : Texture2D = preload("res://assets/hud/items/kid_lost.png") as Texture2D
+
+
 func _ready() -> void:
+	nino.texture = img_lost
 	menu.set_visible(true)
 	win.set_visible(false)
 	lose.set_visible(false)
@@ -41,6 +46,14 @@ func _on_btn_reiniciar_pressed() -> void:
 
 func _on_btn_salir_pressed() -> void:
 	pass # Replace with function body.
+
+
+func set_child_port_found_texture():
+	nino.texture = img_found
+
+
+func set_child_port_lost_texture():
+	nino.texture = img_lost
 
 
 func show_win_notice():
