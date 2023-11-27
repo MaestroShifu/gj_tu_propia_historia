@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	var direction := (next_pos - global_position).normalized()
 	velocity = direction * speed
 	velocity.y -= gravity
-	
+
 	if !velocity.is_zero_approx():
 		var direction_tmp := direction
 		direction_tmp.y = 0

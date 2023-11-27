@@ -31,10 +31,10 @@ func _ready() -> void:
 	total_items = len(get_tree().get_nodes_in_group("Item"))
 	GameEvents.take_item.connect(take_item)
 
-	#hud.time_text.text = time_out_manager.time_format(time_out_value)
-	#hud.btn_empezar.pressed.connect(on_btn_empezar_pressed)
+	hud.time_text.text = time_out_manager.time_format(time_out_value)
+	hud.btn_empezar.pressed.connect(on_btn_empezar_pressed)
 
-	#hud.update_total_items_ui(total_items, total_take_items)
+	hud.update_total_items_ui(total_items, total_take_items)
 
 
 func _process(delta: float) -> void:
@@ -45,8 +45,8 @@ func _process(delta: float) -> void:
 	percentage_color = lerpf(percentage_color, percentage_color_new, delta)
 	RenderingServer.global_shader_parameter_set("grayscale", percentage_color)
 
-	#if game_state == GAME_STATES.PLAYING:
-	#	hud.update_time_text(time_out_manager.time_format(time_out_manager.time_left))
+	if game_state == GAME_STATES.PLAYING:
+		hud.update_time_text(time_out_manager.time_format(time_out_manager.time_left))
 
 
 func start_items_in_map() -> void:
@@ -70,7 +70,7 @@ func start_items_in_map() -> void:
 func take_item(item_name: ItemSpawn.EnumItemName) -> void:
 	print("Item recojido ", ItemSpawn.EnumItemName.keys()[item_name])
 	total_take_items += 1
-	# hud.update_total_items_ui(total_items, total_take_items)
+	hud.update_total_items_ui(total_items, total_take_items)
 
 
 func change_game_state(new_state: GAME_STATES) -> void:

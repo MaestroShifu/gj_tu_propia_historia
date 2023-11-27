@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 
 	if !world_direction.is_zero_approx():
 		dog_mesh.look_at(world_direction + dog_mesh.global_position, Vector3.UP)
-	
+
 	move_and_slide()
 
 
