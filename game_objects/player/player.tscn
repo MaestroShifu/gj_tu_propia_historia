@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmjdq2gu0n3il"]
+[gd_scene load_steps=7 format=3 uid="uid://dmjdq2gu0n3il"]
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_aylh3"]
 [ext_resource type="AudioStream" uid="uid://cv54t5hpgrjkf" path="res://audios/SFX/sfx_dog_bark.wav" id="2_c33jh"]
 [ext_resource type="PackedScene" uid="uid://det4v0x2ov65t" path="res://game_objects/player/doggo_model.tscn" id="2_xybmk"]
 [ext_resource type="PackedScene" uid="uid://5bgvrt2oobh2" path="res://vfx/dog_signal/dog_signal.tscn" id="4_lrbej"]
+[ext_resource type="AudioStream" uid="uid://bfp6kaau5gclr" path="res://audios/SFX/sfx_dog_step_pavement.wav" id="4_voi6n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_70bd1"]
 height = 1.45652
@@ -14,8 +15,13 @@ script = ExtResource("1_aylh3")
 [node name="Doggo" parent="." instance=ExtResource("2_xybmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.221872, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SfxDogBark" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_c33jh")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="SfxDogStep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_voi6n")
 volume_db = -20.0
 bus = &"SFX"
 
@@ -26,3 +32,6 @@ transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 0, 1.3887, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.729658, 0)
 shape = SubResource("CapsuleShape3D_70bd1")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

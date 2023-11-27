@@ -357,6 +357,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="fill_cooldown" type="TextureRect" parent="Personaje"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_o87cq")
 layout_mode = 1
 anchors_preset = 2

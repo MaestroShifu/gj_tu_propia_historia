@@ -3,24 +3,36 @@ class_name Player
 
 @export var speed : float = 14
 @export var range_of_search: float = 5
+@export_range(0.0, 3.0) var couldown_bark: float = 1
 
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var particle_signal: SignalVFX = %Vfx_dog_signal
 @onready var dog_mesh: Node3D = $Doggo
+
+@onready var timer: Timer = $Timer
+
+@onready var sfx_dog_bark: AudioStreamPlayer = $SfxDogBark
+@onready var sfx_dog_step: AudioStreamPlayer = $SfxDogStep
 
 var input_direction: Vector2 = Vector2.ZERO
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var min_item_distance: float
+var is_bark: bool = false
 
 
 func _ready() -> void:
+	timer.wait_time = couldown_bark
 	GameEvents.move_player.connect(move_player)
 	GameEvents.action_bark.connect(on_action_bark)
+	timer.timeout.connect(couldown_bark_time)
 
 
 func _process(_delta: float) -> void:
 	calculate_distance_to_item()
+
+	var diff_seconds = couldown_bark - fmod(timer.time_left, 60)
+	var percentage = (diff_seconds * 100) / couldown_bark
+	GameEvents.emit_couldown_bark(percentage) 
 
 
 func _physics_process(_delta: float) -> void:
@@ -35,6 +47,10 @@ func _physics_process(_delta: float) -> void:
 		dog_mesh.look_at(world_direction + dog_mesh.global_position, Vector3.UP)
 
 	move_and_slide()
+
+
+func couldown_bark_time() -> void:
+	is_bark = false
 
 
 func move_player(in_input_direction: Vector2) -> void:
@@ -79,4 +95,8 @@ func calculate_percentage(distance: float) -> float:
 
 
 func on_action_bark():
-	audio_stream_player.play()
+	if not is_bark:
+		GameEvents.emit_call_the_child()
+		sfx_dog_bark.play()
+		timer.start()
+		is_bark = true

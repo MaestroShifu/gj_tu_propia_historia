@@ -10,11 +10,24 @@ class_name HudGame
 @onready var time_text: Label = %Time_text
 @onready var btn_empezar: Button = $Menu/VBoxContainer/btn_empezar
 @onready var lose: Control = $Lose
+@onready var fill_cooldown: TextureRect = %fill_cooldown
+
+var couldown_bark_percentage: float = 0
 
 func _ready() -> void:
 	menu.set_visible(true)
 	win.set_visible(false)
 	lose.set_visible(false)
+	
+	GameEvents.couldown_bark.connect(couldown_bark_time)
+
+
+func _process(delta: float) -> void:
+	fill_cooldown.material.set("shader_parameter/FloatParameter", couldown_bark_percentage)
+
+
+func couldown_bark_time(percentage: float) -> void:
+	couldown_bark_percentage = percentage
 
 
 func _on_btn_empezar_pressed():
