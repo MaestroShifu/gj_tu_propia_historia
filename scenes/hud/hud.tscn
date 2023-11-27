@@ -477,7 +477,18 @@ layout_mode = 2
 text = "\"C\" - Aullido"
 horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
+[node name="Respawn" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+text = "Respawn"
+horizontal_alignment = 1
+
+[node name="X" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "\"X\" - Respawn"
+horizontal_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
