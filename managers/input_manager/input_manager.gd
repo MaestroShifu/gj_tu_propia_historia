@@ -4,6 +4,7 @@ func _process(_delta: float) -> void:
 	move_player()
 	move_camera()
 	action_bark()
+	respawn()
 
 
 func move_player() -> void:
@@ -19,3 +20,7 @@ func move_camera() -> void:
 func action_bark() -> void:
 	if Input.is_action_pressed("bark"):
 		GameEvents.emit_action_bark()
+
+func respawn() -> void:
+	if Input.is_action_pressed("respawn"):
+		GameEvents.emit_respawn_player()

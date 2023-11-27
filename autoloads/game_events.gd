@@ -6,6 +6,11 @@ signal action_bark()
 signal call_the_child()
 signal take_item(item_name: ItemSpawn.EnumItemName)
 signal couldown_bark(percentage: float)
+signal respawn_player()
+
+func emit_respawn_player() -> void:
+	respawn_player.emit()
+
 
 func emit_couldown_bark(percentage: float) -> void:
 	couldown_bark.emit(percentage)

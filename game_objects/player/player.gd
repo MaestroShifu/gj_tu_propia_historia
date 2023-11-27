@@ -24,6 +24,7 @@ func _ready() -> void:
 	timer.wait_time = couldown_bark
 	GameEvents.move_player.connect(move_player)
 	GameEvents.action_bark.connect(on_action_bark)
+	GameEvents.respawn_player.connect(respawn_player)
 	timer.timeout.connect(couldown_bark_time)
 
 
@@ -31,7 +32,7 @@ func _process(_delta: float) -> void:
 	calculate_distance_to_item()
 
 	var diff_seconds = couldown_bark - fmod(timer.time_left, 60)
-	var percentage = (diff_seconds * 100) / couldown_bark
+	var percentage = diff_seconds / couldown_bark
 	GameEvents.emit_couldown_bark(percentage) 
 
 
@@ -92,6 +93,10 @@ func calculate_distance_to_item() -> void:
 func calculate_percentage(distance: float) -> float:
 	var diff := range_of_search - distance
 	return (diff * 100) / range_of_search
+
+
+func respawn_player() -> void:
+	global_position = Vector3(-3.42, -0.015, -3.36)
 
 
 func on_action_bark():
