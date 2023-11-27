@@ -42,7 +42,6 @@ func validate_listening_range() -> void:
 	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
 	var is_listening := valid_is_listening()
 
-
 	if dog_bark && is_listening:
 		update_target_position(dog.global_position)
 		dog_bark = false
@@ -55,6 +54,11 @@ func validate_listening_range() -> void:
 	if not is_listening && not is_lost && not dog_bark:
 		update_random_target_pos()
 		is_lost = true
+
+	if is_lost:
+		%GameManager.hud.set_child_port_lost_texture()
+	else:
+		%GameManager.hud.set_child_port_found_texture()
 
 
 func update_target_position(target_location : Vector3):
