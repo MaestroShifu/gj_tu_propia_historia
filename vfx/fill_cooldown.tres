@@ -52,9 +52,6 @@ void fragment() {
 
 // Texture2D:5
 	vec4 n_out5p0 = texture(tex_frg_5, UV);
-	float n_out5p1 = n_out5p0.r;
-	float n_out5p2 = n_out5p0.g;
-	float n_out5p3 = n_out5p0.b;
 	float n_out5p4 = n_out5p0.a;
 
 

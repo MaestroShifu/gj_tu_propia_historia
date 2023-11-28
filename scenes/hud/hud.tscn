@@ -318,6 +318,22 @@ texture = ExtResource("10_gtpyo")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="fill_cooldown" type="TextureRect" parent="Personaje"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_o87cq")
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -192.0
+offset_right = 192.0
+offset_bottom = -128.0
+grow_vertical = 0
+texture = ExtResource("10_gtpyo")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Key" type="TextureRect" parent="Personaje"]
 layout_mode = 1
 anchors_preset = 2
@@ -423,7 +439,18 @@ layout_mode = 2
 text = "\"C\" - Aullido"
 horizontal_alignment = 1
 
-[node name="HSeparator3" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
+[node name="Respawn" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+text = "Respawn"
+horizontal_alignment = 1
+
+[node name="X" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "\"X\" - Respawn"
+horizontal_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")

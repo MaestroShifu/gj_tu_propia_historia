@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhtcd8qtg5tql"]
+[gd_scene load_steps=10 format=3 uid="uid://dhtcd8qtg5tql"]
 
 [ext_resource type="PackedScene" uid="uid://b1j4qif7y4j0s" path="res://scenes/hud/hud.tscn" id="1_07c0g"]
 [ext_resource type="PackedScene" uid="uid://c84m73xo17mku" path="res://managers/input_manager/input_manager.tscn" id="1_u7i8u"]
@@ -52,13 +52,8 @@ size = 5.0
 [node name="Child" parent="World" instance=ExtResource("6_ubjuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, -0.00961802, -7.13591)
 speed = 4.0
-listening_range = 6.0
+listening_range = 10.0
 
 [node name="Level" parent="World" instance=ExtResource("5_v64hg")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702787, 0)
-material_override = SubResource("ShaderMaterial_eip51")
-mesh = SubResource("QuadMesh_l45yn")
 
 [connection signal="timeout" from="Manager/TimeOutManager" to="Manager/TimeOutManager" method="_on_timeout"]

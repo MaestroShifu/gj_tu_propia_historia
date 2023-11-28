@@ -13,7 +13,7 @@ var is_lost: bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
-	GameEvents.action_bark.connect(on_action_dog_bark)
+	GameEvents.call_the_child.connect(on_action_dog_bark)
 
 
 func _process(_delta: float) -> void:
