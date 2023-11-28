@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcmu04uycughl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_raybw"]
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(1, 30, 0)
+spread = 36.96
+gravity = Vector3(0, 0.3, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+damping_max = 0.725
+color = Color(0.792157, 0.917647, 0.372549, 1)
+hue_variation_min = -0.48
+hue_variation_max = 0.31
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egcfq"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_iiomk"]
+material = SubResource("StandardMaterial3D_egcfq")
+
+[node name="Vfx_item_taken" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 20
+lifetime = 8.0
+preprocess = 1.75
+speed_scale = 10.0
+explosiveness = 0.5
+randomness = 0.77
+process_material = SubResource("ParticleProcessMaterial_raybw")
+draw_pass_1 = SubResource("BoxMesh_iiomk")

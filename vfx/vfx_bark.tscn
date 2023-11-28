@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://0w64nepqqosh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2h1nh"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+direction = Vector3(1, -0.075, 0)
+spread = 8.26
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+color = Color(0.25098, 0.713726, 0.698039, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwduj"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_6mdwl"]
+material = SubResource("StandardMaterial3D_pwduj")
+height = 0.3
+
+[node name="Vfx_ladrido" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 4
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 0.45
+process_material = SubResource("ParticleProcessMaterial_2h1nh")
+draw_pass_1 = SubResource("SphereMesh_6mdwl")
