@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc2hc7pvp6epc"]
+
+[ext_resource type="Script" path="res://scenes/hud/item_data_ui.gd" id="1_qeftr"]
+[ext_resource type="Texture2D" uid="uid://cxlbp1hk2t3h6" path="res://assets/hud/items/Item_fish.png" id="1_wglfi"]
+[ext_resource type="Texture2D" uid="uid://dqj1l1u2fnwqu" path="res://assets/hud/items/Item_fish_hidden.png" id="2_68m6c"]
+
+[node name="ItemDataUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qeftr")
+
+[node name="ItemTexture" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+texture_normal = ExtResource("1_wglfi")
+texture_disabled = ExtResource("2_68m6c")
+ignore_texture_size = true
+stretch_mode = 5
