@@ -7,7 +7,7 @@ class_name Player
 
 @onready var camera: Camera3D = get_viewport().get_camera_3d()
 @onready var particle_signal: SignalVFX = %Vfx_dog_signal
-@onready var dog_mesh: Node3D = $Doggo
+@onready var dog_mesh: Node3D = %Dog
 
 @onready var timer: Timer = $Timer
 
@@ -18,7 +18,7 @@ var input_direction: Vector2 = Vector2.ZERO
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var min_item_distance: float
 var is_bark: bool = false
-
+var animation_player: AnimationPlayer
 
 func _ready() -> void:
 	timer.wait_time = couldown_bark
@@ -26,6 +26,7 @@ func _ready() -> void:
 	GameEvents.action_bark.connect(on_action_bark)
 	GameEvents.respawn_player.connect(respawn_player)
 	timer.timeout.connect(couldown_bark_time)
+	animation_player = dog_mesh.get_node_or_null("AnimationPlayer")
 
 
 func _process(_delta: float) -> void:
@@ -46,10 +47,11 @@ func _physics_process(_delta: float) -> void:
 
 	if !world_direction.is_zero_approx():
 		dog_mesh.look_at(world_direction + dog_mesh.global_position, Vector3.UP)
-
+		animation_player.play("Run")
 		if not sfx_dog_step.playing:
 			sfx_dog_step.play()
 	else:
+		animation_player.play("Neutro")
 		if sfx_dog_step.playing:
 			sfx_dog_step.stop()
 

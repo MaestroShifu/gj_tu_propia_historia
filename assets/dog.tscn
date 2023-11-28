@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cktvgnmqfr67q"]
+
+[ext_resource type="PackedScene" uid="uid://bq6ffq4o3cm57" path="res://assets/Dog.glb" id="1_rcrwj"]
+
+[node name="Dog" instance=ExtResource("1_rcrwj")]
+
+[node name="metarig_001" parent="." index="0"]
+transform = Transform3D(-5.14372, 0, 4.49679e-07, 0, 5.14372, 0, -4.49679e-07, 0, -5.14372, -0.617211, 0.259146, 0)
