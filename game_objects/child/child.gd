@@ -5,13 +5,17 @@ class_name GJChild
 @export var listening_range: float = 8
 @export var random_pos_radius : float = 15
 @export var game_manager: GameManager
+@export var time_to_reach_target : float = 10
+
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var sfx_kid_step: AudioStreamPlayer3D = $SfxKidSteps
 @onready var child_mesh: Node3D = %Child
+
 var dog_bark: bool = false
 var is_lost: bool = false
 var animation_player: AnimationPlayer
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var elapsed_time : float = 0
 
 func _ready() -> void:
 	GameEvents.call_the_child.connect(on_action_dog_bark)
@@ -27,6 +31,13 @@ func _physics_process(_delta: float) -> void:
 		animation_player.play("Neutro")
 		sfx_kid_step.stop()
 		is_lost = false
+		elapsed_time = 0
+		return
+
+	elapsed_time += _delta
+	if elapsed_time >= time_to_reach_target:
+		unstuck()
+		elapsed_time = 0
 		return
 
 	var next_pos := navigation_agent_3d.get_next_path_position()
@@ -99,3 +110,10 @@ func valid_is_listening() -> bool:
 
 func take_object_is_valid() -> bool:
 	return valid_is_listening() && not is_lost
+
+
+func unstuck():
+	var dog: Player = get_tree().get_first_node_in_group("Player") as Player
+	var delta_dog = dog.position - global_position
+	var new_target := global_position + delta_dog.normalized() * (delta_dog.length() * 0.5)
+	update_target_position(new_target)

@@ -94,6 +94,11 @@ respawn={
 ]
 }
 
+[navigation]
+
+3d/default_cell_size=0.5
+3d/default_edge_connection_margin=0.5
+
 [rendering]
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
