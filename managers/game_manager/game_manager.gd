@@ -17,6 +17,7 @@ enum GAME_STATES {
 @onready var item_data: ItemSpawn = ItemSpawn.new()
 @onready var list_items: Node3D = $ListItems
 @onready var hud: HudGame = $"../../hud" as HudGame
+@onready var sfx_dog_finish_time: AudioStreamPlayer = $SfxDogFinishTime
 
 var total_items: int = 0
 var total_take_items: int = 0
@@ -25,7 +26,7 @@ var percentage_color: float = 0
 var is_win: bool = false
 
 var game_state : GAME_STATES = GAME_STATES.READY
-
+var time_in_sg: float = 0
 
 func _ready() -> void:
 	start_items_in_map()
@@ -36,10 +37,17 @@ func _ready() -> void:
 	hud.btn_empezar.pressed.connect(on_btn_empezar_pressed)
 	hud.update_total_items_ui(total_items, total_take_items)
 	hud.init(self)
+	
+	GameEvents.time_sg.connect(timer_sg)
 
 
 func _process(delta: float) -> void:
+	if time_in_sg <= 10 && time_in_sg != 0 && not sfx_dog_finish_time.playing && game_state == GAME_STATES.PLAYING:
+		sfx_dog_finish_time.play()
+
 	if total_items == total_take_items:
+		if sfx_dog_finish_time.playing:
+			sfx_dog_finish_time.stop()
 		is_win = true
 		change_game_state(GAME_STATES.GAME_OVER)
 
@@ -70,7 +78,6 @@ func start_items_in_map() -> void:
 
 
 func take_item(item_name: ItemSpawn.EnumItemName) -> void:
-	print("Item recojido ", ItemSpawn.EnumItemName.keys()[item_name])
 	total_take_items += 1
 	hud.update_total_items_ui(total_items, total_take_items)
 	hud.activate_found_item(item_name)
@@ -84,6 +91,8 @@ func change_game_state(new_state: GAME_STATES) -> void:
 
 
 func on_time_is_eover() -> void:
+	if sfx_dog_finish_time.playing:
+		sfx_dog_finish_time.stop()
 	change_game_state(GAME_STATES.GAME_OVER)
 	game_over.emit()
 	hud.show_lose_notice()
@@ -93,3 +102,7 @@ func on_btn_empezar_pressed() -> void:
 	change_game_state(GAME_STATES.PLAYING)
 	time_out_manager.init(time_out_value)
 	time_out_manager.time_is_eover.connect(on_time_is_eover)
+
+
+func timer_sg(sg: float) -> void:
+	time_in_sg = sg
