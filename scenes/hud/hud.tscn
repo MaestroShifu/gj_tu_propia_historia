@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1j4qif7y4j0s"]
+[gd_scene load_steps=25 format=3 uid="uid://b1j4qif7y4j0s"]
 
 [ext_resource type="Theme" uid="uid://dn8recnjj3vax" path="res://style/estilo.tres" id="1_rlq1v"]
 [ext_resource type="Script" path="res://scenes/hud/hud_game.gd" id="2_wx16m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bolxqajxh287j" path="res://assets/hud/hud_guau.png" id="10_gtpyo"]
 [ext_resource type="Shader" uid="uid://dgxsbg5b1jkg" path="res://vfx/fill_cooldown.tres" id="11_st2pk"]
 [ext_resource type="Texture2D" uid="uid://dykooh4q8larm" path="res://assets/hud/hud_KeyC.svg" id="11_vjfmo"]
+[ext_resource type="FontFile" uid="uid://bsklhagqqfdst" path="res://style/Nunito/static/Nunito-SemiBold.ttf" id="13_tkeso"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1dae"]
 bg_color = Color(0.27451, 0.27451, 0.352941, 1)
@@ -424,77 +425,100 @@ layout_mode = 2
 theme_override_constants/separation = 24
 
 [node name="controles" type="PanelContainer" parent="Menu/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 300)
+custom_minimum_size = Vector2(200, 250)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/VBoxContainer/HBoxContainer/controles"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
+theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-alignment = 1
+theme_override_constants/separation = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Instrucciones" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="Instrucciones" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_hllk6")
 theme_override_font_sizes/font_size = 24
 text = "Controles"
 horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 24
-theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+theme_override_constants/separation = 48
 
-[node name="Movimiento" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Movimiento" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gv106")
 text = "Movimiento"
 horizontal_alignment = 1
 
-[node name="wasd" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="wasd" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "WASD"
 horizontal_alignment = 1
 
-[node name="Habilidad" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Habilidad" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gv106")
 text = "Habilidades"
 horizontal_alignment = 1
 
-[node name="R" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="R" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "\"C\" - Aullido"
+text = "\"C\" - Ladrar"
 horizontal_alignment = 1
 
-[node name="Respawn" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Movimiento" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gv106")
+text = "Cámara"
+horizontal_alignment = 1
+
+[node name="wasd" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Q, E"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
+
+[node name="Respawn" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gv106")
 text = "Respawn"
 horizontal_alignment = 1
 
-[node name="X" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="X" type="Label" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "\"X\" - Respawn"
 horizontal_alignment = 1
 
-[node name="HSeparator4" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/controles/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
 
 [node name="Objetivo" type="PanelContainer" parent="Menu/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 300)
+custom_minimum_size = Vector2(450, 250)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r1dae")
 
@@ -505,52 +529,48 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 24
-alignment = 1
+theme_override_constants/separation = 12
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Instrucciones" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="Instrucciones" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_hllk6")
 theme_override_font_sizes/font_size = 24
 text = "Objetivo"
 horizontal_alignment = 1
 
-[node name="contenido" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="contenido" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 text = "Tommy ha perdido sus juguetes, y tu como su perro
 guía, estas decidido a encontrarlos.
 "
 horizontal_alignment = 1
 
-[node name="contenido3" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="contenido3" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
-text = "
-¡Utiliza tu aullido para guiar a Tommy!"
+theme_override_fonts/font = ExtResource("13_tkeso")
+theme_override_font_sizes/font_size = 18
+text = "¡Utiliza tu aullido para guiar a Tommy!"
 horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 theme_override_styles/separator = SubResource("StyleBoxFlat_ji7tu")
 
-[node name="Habilidad" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="Habilidad" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_gv106")
 theme_override_font_sizes/font_size = 20
 text = "Ten en cuenta"
 horizontal_alignment = 1
 
-[node name="contenido2" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+[node name="contenido2" type="Label" parent="Menu/VBoxContainer/HBoxContainer/Objetivo/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 text = "El rango de audición tuyo y de Tommy son limitados."
 horizontal_alignment = 1
