@@ -19,6 +19,7 @@ shape = SubResource("CapsuleShape3D_0114d")
 
 [node name="SfxKidSteps" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_5h4pb")
+volume_db = -10.0
 bus = &"Environment"
 
 [node name="Child" parent="." instance=ExtResource("3_qcn2a")]

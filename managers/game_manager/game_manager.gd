@@ -17,11 +17,22 @@ enum GAME_STATES {
 @onready var item_data: ItemSpawn = ItemSpawn.new()
 @onready var list_items: Node3D = $ListItems
 @onready var hud: HudGame = $"../../hud" as HudGame
+
 @onready var sfx_dog_finish_time: AudioStreamPlayer = $SfxDogFinishTime
+
+# Music
+@onready var music_piano_base: AudioStreamPlayer = $Music/MusicPianoBase
+@onready var music_drum: AudioStreamPlayer = $Music/MusicDrum
+@onready var music_trumpet: AudioStreamPlayer = $Music/MusicTrumpet
+@onready var music_piano1: AudioStreamPlayer = $Music/MusicPiano1
+@onready var music_piano2: AudioStreamPlayer = $Music/MusicPiano2
+
+const AUDIO_VOL: int = 320
 
 var total_items: int = 0
 var total_take_items: int = 0
 var percentage_color: float = 0
+var percentage_item: float = 0
 
 var is_win: bool = false
 
@@ -39,11 +50,14 @@ func _ready() -> void:
 	hud.init(self)
 	
 	GameEvents.time_sg.connect(timer_sg)
+	audo_percentage(50)
 
 
 func _process(delta: float) -> void:
-	if time_in_sg <= 10 && time_in_sg != 0 && not sfx_dog_finish_time.playing && game_state == GAME_STATES.PLAYING:
-		sfx_dog_finish_time.play()
+	play_music()
+
+	# if time_in_sg <= 10 && time_in_sg != 0 && not sfx_dog_finish_time.playing && game_state == GAME_STATES.PLAYING:
+		# sfx_dog_finish_time.play()
 
 	if total_items == total_take_items:
 		if sfx_dog_finish_time.playing:
@@ -54,6 +68,14 @@ func _process(delta: float) -> void:
 	var percentage_color_new := float(total_take_items) / float(total_items)
 	percentage_color = lerpf(percentage_color, percentage_color_new, delta)
 	RenderingServer.global_shader_parameter_set("grayscale", percentage_color)
+	
+	var new_percentage_item := (float(total_take_items) * 100) / float(total_items)
+	percentage_item = lerpf(percentage_item, new_percentage_item, delta)
+	audo_percentage(percentage_item)
+	
+	if game_state == GAME_STATES.READY:
+		play_music()
+		start_mute_music()
 
 	if game_state == GAME_STATES.PLAYING:
 		hud.update_time_text(time_out_manager.time_format(time_out_manager.time_left))
@@ -106,3 +128,46 @@ func on_btn_empezar_pressed() -> void:
 
 func timer_sg(sg: float) -> void:
 	time_in_sg = sg
+
+func start_mute_music() -> void:
+	music_drum.volume_db = -80
+	music_trumpet.volume_db = -80
+	music_piano1.volume_db = -80
+	music_piano2.volume_db = -80
+
+func audo_percentage(percentage: float) -> void:
+	if percentage == 0:
+		return
+
+	var range_instrument = (percentage * AUDIO_VOL) / 100
+	var volumen = range_instrument
+	if range_instrument >= 80:
+		volumen = instrument_inc_vol(music_piano2, volumen)
+	if range_instrument >= 160:
+		volumen = instrument_inc_vol(music_drum, volumen)
+	if range_instrument >= 240:
+		volumen = instrument_inc_vol(music_piano1, volumen)
+	if range_instrument >= 320:
+		volumen = instrument_inc_vol(music_trumpet, volumen)
+
+func instrument_inc_vol(music: AudioStreamPlayer, volumen: float) -> float:
+	var vol = volumen - 80
+	if vol >= 0:
+		music.volume_db = 0
+	else:
+		music.volume_db = vol
+	return volumen - 80
+
+func play_music() -> void:
+	if not music_piano_base.playing  && not music_drum.playing && not music_trumpet.playing && not music_piano1.playing && not music_piano2.playing:
+		music_piano_base.play()
+		music_drum.play() # 1
+		music_trumpet.play() # 2
+		music_piano2.play() # 3
+		music_piano1.play() # 4
+
+
+	
+		
+		# -80 db
+		# 0 db
