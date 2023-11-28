@@ -6,6 +6,7 @@ class_name GJChild
 @export var random_pos_radius : float = 15
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var sfx_kid_step: AudioStreamPlayer3D = $SfxKidSteps
 
 var dog_bark: bool = false
 var is_lost: bool = false
@@ -34,6 +35,12 @@ func _physics_process(_delta: float) -> void:
 		var direction_tmp := direction
 		direction_tmp.y = 0
 		look_at(global_position + direction_tmp, Vector3.UP)
+		
+		if not sfx_kid_step.playing:
+			sfx_kid_step.play()
+	else:
+		if sfx_kid_step.playing:
+			sfx_kid_step.stop()
 
 	move_and_slide()
 
