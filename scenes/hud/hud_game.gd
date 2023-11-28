@@ -10,20 +10,24 @@ class_name HudGame
 @onready var time_text: Label = %Time_text
 @onready var btn_empezar: Button = $Menu/VBoxContainer/btn_empezar
 @onready var lose: Control = $Lose
+@onready var items_pictures_container: HBoxContainer = $Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer
 @onready var fill_cooldown: TextureRect = %fill_cooldown
 
 var couldown_bark_percentage: float = 0
 
 var img_found : Texture2D = preload("res://assets/hud/items/kid_found.png") as Texture2D
 var img_lost : Texture2D = preload("res://assets/hud/items/kid_lost.png") as Texture2D
+var item_picture_template : PackedScene = preload("res://scenes/hud/item_picture.tscn") as PackedScene
 
+var game_manager : GameManager
+var item_ui_dict : Dictionary
 
 func _ready() -> void:
 	nino.texture = img_lost
 	menu.set_visible(true)
 	win.set_visible(false)
 	lose.set_visible(false)
-	
+
 	GameEvents.couldown_bark.connect(couldown_bark_time)
 
 
@@ -33,6 +37,26 @@ func _process(delta: float) -> void:
 
 func couldown_bark_time(percentage: float) -> void:
 	couldown_bark_percentage = percentage
+
+
+func init(in_game_manager: GameManager):
+	game_manager = in_game_manager
+
+	var items_data := game_manager.item_data.ItemDataSpawn
+	for key in items_data.keys():
+		var item : Dictionary = items_data[key] as Dictionary
+		var item_ui := item_picture_template.instantiate() as ItemDataUI
+		items_pictures_container.add_child(item_ui)
+		item_ui.init(item.found, item.disabled, key)
+		item_ui_dict[key] = item_ui
+
+
+func activate_found_item(in_item : ItemSpawn.EnumItemName):
+	if !item_ui_dict.has(in_item):
+		return
+
+	var item_ui : ItemDataUI = item_ui_dict[in_item] as ItemDataUI
+	item_ui.set_active_item()
 
 
 func _on_btn_empezar_pressed():
