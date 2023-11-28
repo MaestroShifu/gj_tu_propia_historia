@@ -27,7 +27,7 @@ func _ready() -> void:
 	menu.set_visible(true)
 	win.set_visible(false)
 	lose.set_visible(false)
-	
+
 	GameEvents.couldown_bark.connect(couldown_bark_time)
 
 

@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 
 	var diff_seconds = couldown_bark - fmod(timer.time_left, 60)
 	var percentage = diff_seconds / couldown_bark
-	GameEvents.emit_couldown_bark(percentage) 
+	GameEvents.emit_couldown_bark(percentage)
 
 
 func _physics_process(_delta: float) -> void:
