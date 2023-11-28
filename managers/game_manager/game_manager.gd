@@ -1,4 +1,5 @@
 extends Node
+class_name GameManager
 
 signal game_over
 
@@ -33,13 +34,14 @@ func _ready() -> void:
 
 	hud.time_text.text = time_out_manager.time_format(time_out_value)
 	hud.btn_empezar.pressed.connect(on_btn_empezar_pressed)
-
 	hud.update_total_items_ui(total_items, total_take_items)
+	hud.init(self)
 
 
 func _process(delta: float) -> void:
 	if total_items == total_take_items:
 		is_win = true
+		change_game_state(GAME_STATES.GAME_OVER)
 
 	var percentage_color_new := float(total_take_items) / float(total_items)
 	percentage_color = lerpf(percentage_color, percentage_color_new, delta)
@@ -71,6 +73,7 @@ func take_item(item_name: ItemSpawn.EnumItemName) -> void:
 	print("Item recojido ", ItemSpawn.EnumItemName.keys()[item_name])
 	total_take_items += 1
 	hud.update_total_items_ui(total_items, total_take_items)
+	hud.activate_found_item(item_name)
 
 	if total_items == total_take_items:
 		hud.show_win_notice()
