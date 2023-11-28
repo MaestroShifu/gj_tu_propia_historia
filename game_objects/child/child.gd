@@ -4,17 +4,18 @@ class_name GJChild
 @export var speed : float = 2
 @export var listening_range: float = 8
 @export var random_pos_radius : float = 15
-
+@export var game_manager: GameManager
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var sfx_kid_step: AudioStreamPlayer3D = $SfxKidSteps
-
+@onready var child_mesh: Node3D = %Child
 var dog_bark: bool = false
 var is_lost: bool = false
-
+var animation_player: AnimationPlayer
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:
 	GameEvents.call_the_child.connect(on_action_dog_bark)
+	animation_player = child_mesh.get_node_or_null("AnimationPlayer")
 
 
 func _process(_delta: float) -> void:
@@ -23,6 +24,8 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if navigation_agent_3d.is_navigation_finished():
+		animation_player.play("Neutro")
+		sfx_kid_step.stop()
 		is_lost = false
 		return
 
@@ -35,13 +38,9 @@ func _physics_process(_delta: float) -> void:
 		var direction_tmp := direction
 		direction_tmp.y = 0
 		look_at(global_position + direction_tmp, Vector3.UP)
-		
+		animation_player.play("Walk")
 		if not sfx_kid_step.playing:
 			sfx_kid_step.play()
-	else:
-		if sfx_kid_step.playing:
-			sfx_kid_step.stop()
-
 	move_and_slide()
 
 
@@ -63,9 +62,9 @@ func validate_listening_range() -> void:
 		is_lost = true
 
 	if is_lost:
-		%GameManager.hud.set_child_port_lost_texture()
+		game_manager.hud.set_child_port_lost_texture()
 	else:
-		%GameManager.hud.set_child_port_found_texture()
+		game_manager.hud.set_child_port_found_texture()
 
 
 func update_target_position(target_location : Vector3):

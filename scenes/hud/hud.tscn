@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1j4qif7y4j0s"]
+[gd_scene load_steps=23 format=3 uid="uid://b1j4qif7y4j0s"]
 
 [ext_resource type="Theme" uid="uid://dn8recnjj3vax" path="res://style/estilo.tres" id="1_rlq1v"]
 [ext_resource type="Script" path="res://scenes/hud/hud_game.gd" id="2_wx16m"]

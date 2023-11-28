@@ -1,16 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgpj07rqrg6pg"]
 
 [ext_resource type="Script" path="res://game_objects/child/child.gd" id="1_yvmkd"]
-[ext_resource type="PackedScene" uid="uid://m7wwgaogy873" path="res://game_objects/child/child_model.tscn" id="2_k4l6g"]
 [ext_resource type="AudioStream" uid="uid://coq5wjnd5p4sv" path="res://audios/SFX/sfx_kid_steps.ogg" id="3_5h4pb"]
+[ext_resource type="PackedScene" uid="uid://b7kil2n5ubrvy" path="res://assets/child.tscn" id="3_qcn2a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0114d"]
 
 [node name="Child" type="CharacterBody3D" groups=["Child"]]
 script = ExtResource("1_yvmkd")
-
-[node name="Child" parent="." instance=ExtResource("2_k4l6g")]
-transform = Transform3D(-0.4, 0, 6.03983e-08, 0, 0.4, 0, -6.03983e-08, 0, -0.4, -0.00976036, 0, -0.0998376)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
@@ -24,3 +21,7 @@ shape = SubResource("CapsuleShape3D_0114d")
 [node name="SfxKidSteps" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_5h4pb")
 bus = &"Environment"
+
+[node name="Child" parent="." instance=ExtResource("3_qcn2a")]
+unique_name_in_owner = true
+transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 0, 0, 0)

@@ -41,10 +41,11 @@ transform = Transform3D(0.997785, -0.0425813, 0.0511027, 0, 0.768254, 0.640146, 
 fov = 60.0
 size = 5.0
 
-[node name="Child" parent="World" instance=ExtResource("6_ubjuo")]
+[node name="Child" parent="World" node_paths=PackedStringArray("game_manager") instance=ExtResource("6_ubjuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82373, -0.00961802, -7.13591)
 speed = 4.0
 listening_range = 10.0
+game_manager = NodePath("../../Manager/GameManager")
 
 [node name="Level" parent="World" instance=ExtResource("5_v64hg")]
 

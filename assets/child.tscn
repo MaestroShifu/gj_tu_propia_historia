@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7kil2n5ubrvy"]
+
+[ext_resource type="PackedScene" uid="uid://dinochgg7qmjs" path="res://assets/Child.glb" id="1_ij5gc"]
+
+[node name="Child" instance=ExtResource("1_ij5gc")]
+
+[node name="Skeleton3D" parent="metarig" index="0"]
+bones/1/rotation = Quaternion(-0.117636, 3.58873e-14, -2.80466e-08, 0.993057)
+bones/3/rotation = Quaternion(-0.10086, -1.18601e-07, -1.20235e-08, 0.994901)
+bones/4/position = Vector3(0.0410216, 2.57942, -0.4148)
+bones/6/rotation = Quaternion(-0.0878054, 0.677789, -0.543284, 0.48758)
+bones/7/rotation = Quaternion(-0.0850736, -0.0990469, -0.0908141, 0.987271)
+bones/18/rotation = Quaternion(-0.0878054, -0.677789, 0.543284, 0.48758)
+bones/19/rotation = Quaternion(-0.0850735, 0.0990469, 0.0908141, 0.987271)
+bones/34/rotation = Quaternion(-6.43956e-08, 0.999293, 0.037591, 2.33882e-06)
+bones/38/rotation = Quaternion(-6.43948e-08, -0.999293, -0.037591, 2.33882e-06)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Neutro"
