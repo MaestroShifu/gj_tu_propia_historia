@@ -553,6 +553,7 @@ focus_mode = 0
 text = "       Empezar       "
 
 [node name="Win" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -644,7 +645,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 12
-text = "Maestro Shifu and Jonathan Corona
+text = "Daniel Santos (Maestro Shifu) and Jonathan Corona
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -688,7 +689,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 12
-text = "Andrés Castillo \"visualdavid\" and Andrea \"Nottzabi\"
+text = "Andrés Castillo (visualdavid) and Andrea (NottZabi)
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -723,7 +724,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_gv106")
 theme_override_font_sizes/font_size = 14
-text = "Compositora"
+text = "Compositora y Sound Designer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -731,7 +732,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 12
-text = "Luisa Zamara
+text = "Luisa Zarama
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -749,7 +750,6 @@ focus_mode = 0
 text = "       Intentar de nuevo       "
 
 [node name="Lose" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
