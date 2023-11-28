@@ -4,9 +4,7 @@
 [ext_resource type="Script" path="res://scenes/hud/hud_game.gd" id="2_wx16m"]
 [ext_resource type="FontFile" uid="uid://cw22v6j6ll5jn" path="res://style/Nunito/static/Nunito-Medium.ttf" id="3_gv106"]
 [ext_resource type="Texture2D" uid="uid://4ihvkgdemrkq" path="res://assets/hud/hud_x.svg" id="4_le6pc"]
-[ext_resource type="Texture2D" uid="uid://cxlbp1hk2t3h6" path="res://assets/hud/items/Item_fish.png" id="5_8f74c"]
 [ext_resource type="Texture2D" uid="uid://dla446fnto44e" path="res://assets/hud/hud_tula.png" id="5_alcf0"]
-[ext_resource type="Texture2D" uid="uid://dqj1l1u2fnwqu" path="res://assets/hud/items/Item_fish_hidden.png" id="6_g61ff"]
 [ext_resource type="FontFile" uid="uid://bexrojh87slgs" path="res://style/Nunito/static/Nunito-Bold.ttf" id="6_hllk6"]
 [ext_resource type="Texture2D" uid="uid://c0snes3j0wvof" path="res://assets/hud/items/kid_found2.png" id="9_huutc"]
 [ext_resource type="Texture2D" uid="uid://bolxqajxh287j" path="res://assets/hud/hud_guau.png" id="10_gtpyo"]
@@ -228,9 +226,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -106.0
+offset_left = -278.0
 offset_top = -32.0
-offset_right = 106.0
+offset_right = 82.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -248,36 +246,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jj58t")
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 12
-
-[node name="TextureButton" type="TextureButton" parent="Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-disabled = true
-texture_normal = ExtResource("5_8f74c")
-texture_disabled = ExtResource("6_g61ff")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="TextureButton2" type="TextureButton" parent="Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-disabled = true
-texture_normal = ExtResource("5_8f74c")
-texture_disabled = ExtResource("5_8f74c")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="TextureButton3" type="TextureButton" parent="Tula/PanelContainer/MarginContainer/PanelContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 2
-size_flags_horizontal = 4
-disabled = true
-texture_normal = ExtResource("5_8f74c")
-texture_disabled = ExtResource("6_g61ff")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Tula"]
 custom_minimum_size = Vector2(90, 124)
@@ -780,6 +748,7 @@ focus_mode = 0
 text = "       Salir       "
 
 [node name="Lose" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

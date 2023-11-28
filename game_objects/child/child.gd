@@ -41,6 +41,7 @@ func _physics_process(_delta: float) -> void:
 		animation_player.play("Walk")
 		if not sfx_kid_step.playing:
 			sfx_kid_step.play()
+
 	move_and_slide()
 
 
