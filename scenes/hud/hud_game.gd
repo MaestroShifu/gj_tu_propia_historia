@@ -31,7 +31,7 @@ func _ready() -> void:
 	GameEvents.couldown_bark.connect(couldown_bark_time)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	fill_cooldown.material.set("shader_parameter/FloatParameter", couldown_bark_percentage)
 
 

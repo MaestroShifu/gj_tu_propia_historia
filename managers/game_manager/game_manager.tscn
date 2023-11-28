@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bop8hlrmhcc7d"]
+[gd_scene load_steps=3 format=3 uid="uid://bop8hlrmhcc7d"]
 
 [ext_resource type="Script" path="res://managers/game_manager/game_manager.gd" id="1_p65ti"]
+[ext_resource type="AudioStream" uid="uid://xwnqj8a1a2f4" path="res://audios/SFX/sfx_perrito_clock .wav" id="2_5ihoa"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_p65ti")
 
 [node name="ListItems" type="Node3D" parent="."]
+
+[node name="SfxDogFinishTime" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5ihoa")
+bus = &"SFX"

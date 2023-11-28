@@ -4,7 +4,6 @@ signal time_is_eover()
 
 @onready var hud: HudGame = $"../../hud"  as HudGame
 
-
 func _ready() -> void:
 	if autostart:
 		init()
@@ -37,5 +36,7 @@ func _on_timeout() -> void:
 func time_format(time_in_secs : float) -> String:
 	var seconds = fmod(time_in_secs, 60)
 	var minutes = fmod((time_in_secs/60), 60)
-
+	
+	GameEvents.emit_time_sg(seconds)
+	
 	return "%02d:%02d" % [minutes, seconds]

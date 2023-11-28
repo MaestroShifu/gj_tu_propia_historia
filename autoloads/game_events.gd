@@ -7,6 +7,10 @@ signal call_the_child()
 signal take_item(item_name: ItemSpawn.EnumItemName)
 signal couldown_bark(percentage: float)
 signal respawn_player()
+signal time_sg(sg: float)
+
+func emit_time_sg(sg: float) -> void:
+	time_sg.emit(sg)
 
 func emit_respawn_player() -> void:
 	respawn_player.emit()
