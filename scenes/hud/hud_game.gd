@@ -82,7 +82,7 @@ func _on_btn_reiniciar_pressed() -> void:
 
 
 func _on_btn_salir_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().reload_current_scene()
 
 
 func set_child_port_found_texture():

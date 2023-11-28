@@ -746,7 +746,7 @@ custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-text = "       Salir       "
+text = "       Intentar de nuevo       "
 
 [node name="Lose" type="Control" parent="."]
 visible = false
@@ -986,4 +986,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Botones/btn_reiniciar" to="." method="_on_btn_reiniciar_pressed"]
 [connection signal="pressed" from="Botones/btn_salir" to="." method="_on_btn_salir_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/btn_empezar" to="." method="_on_btn_empezar_pressed"]
+[connection signal="pressed" from="Win/Quest/MarginContainer/VBoxContainer/btn_salir" to="." method="_on_btn_salir_pressed"]
 [connection signal="pressed" from="Lose/Quest/MarginContainer/VBoxContainer/btn_salir" to="." method="_on_btn_reiniciar_pressed"]
